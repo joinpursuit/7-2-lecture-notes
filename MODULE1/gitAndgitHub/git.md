@@ -1,0 +1,1 @@
+Use `git status` to check if files are tracked or untracked. 
