@@ -7,10 +7,12 @@
 
 // Forward slash is considered an escape key. 
 
-// If you forget to declare a variable it will automatically become global
+// If you forget to declare a variable it will automatically become global so use "use strict"
+// person = "AnJu"
+// console.log(person) // will throw error w/o use strict 
+
 // first_name - snakecase - common with languages like Ruby 
 // in JS we use camelCase - starts lowercase, each additional word capital 
-
 // let firstName = "Corey";
 // let lastName = "Ladovsky";
 // console.log(lastName)
@@ -44,8 +46,16 @@
 
 // console.log(age)
 
-let num = 8; 
-// num /= 2 /// num = num / 2   num += 2 // num = num + 2
-// console.log(num / 2)
-num++ // num += 1 
-console.log(num)
+// let num = 8; 
+// // num /= 2 /// num = num / 2   num += 2 // num = num + 2  n *= 2 n %= 3
+// // console.log(num / 2)                                           n = n % 3
+// num++ // num += 1   num-- (down by one) num++(up by one)
+// console.log(num)
+
+// const favoriteNum = 13; 
+// const secondFavNum = 16; 
+
+// let sumOfTopTwoNums = favoriteNum + secondFavNum;
+// console.log("The sum of my two favorite numbers is " + sumOfTopTwoNums)
+// let name = "Corey"
+// console.log(`Hello there ${5 + 4 * 2} ${name}`)
