@@ -27,7 +27,7 @@
 const greeting = () => "Hello World"    // implicit returns return everything in function without explicit return keyword     
 
 
-console.log(greeting())
+// console.log(greeting())
 // console.log(greeting)
 
 // console.log(greeting("Marsha"));
@@ -156,3 +156,41 @@ function doubleSquare(num) {
 // changeAnimal("cat");
 
 // console.log(animal)
+
+//write a function that takes two arguments and  determines if they are both numbers. 
+
+// const bothNumbers = (num1, num2) => {
+//     return typeof num1 === "number" && typeof num2 === "number"
+//     // return typeof num1 === typeof num2 -> not correct, will return true if both are strings
+// }
+
+// console.log(bothNumbers(13, 5));
+
+// function dividesNumbers(num1, num2) { //ES5
+//     return num1 / num2; 
+// }
+
+// const dividesNumbers = function(num1, num2) { //ES5
+//                             return num1 / num2; 
+//                         }
+
+const dividesNumbers = (num1, num2) => { //ES6+
+    return num1 / num2; 
+}
+
+// let result = dividesNumbers(8, 2);
+// console.log(result)
+
+let a;
+let b;
+
+function test() {
+  let a = "a";
+  let b = "b";
+  console.log("a val is ", a, " b val is ", b);
+}
+
+console.log(a);
+console.log(b);
+
+test();
