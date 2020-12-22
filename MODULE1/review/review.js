@@ -82,3 +82,78 @@ const findIndexOf = (arr, target) => {
 // console.log(findIndexOf(["cat", "dog", "bird", "whale", "pig"], "snake"))
 
 //Write a function that takes in two arrays and returns them merged into each other. 
+// [1, 2, 3] [4, 5, 6] // [1, 2, 3, 4, 5, 6];
+
+function mergeArrays(arr1, arr2) {
+    return arr1.concat(arr2);
+    // let output = [];
+    // for(let i = 0; i < arr1.length; i++) {
+    //     output.push(arr1[i])
+    // }
+    // for(let i = 0; i < arr2.length; i++) {
+    //     output.push(arr2[i])
+    // }
+    // return output;
+    // return [...arr1, ...arr2] spread operator -> look this up on google
+}
+
+// console.log(mergeArrays([1, 2, 3], [4, 5, 6]))
+
+const arrIncludes = (arr, target) => {
+    for(let i = 0; i < arr.length; i++) {
+        const el = arr[i];
+        if(el === target) {
+            return true; 
+        } 
+    }
+    return false; 
+}
+
+const countOccurence = (arr, target) => {
+    let count = 0; 
+    for(let i = 0; i < arr.length; i++) {
+        const el = arr[i];
+        if(el === target) {
+            count++; 
+        } 
+    }
+    return count; 
+}
+// let animals = ["cat", "dog", "bird", "dog"]
+// console.log(countOccurence(animals, "snake"))
+// console.log(countOccurence(animals, "dog"))
+
+// Write a function that doubles every element in an Array. 
+//  functiondoublesArray(arr){
+//     let output = [];
+//     for(let i = 0; i < arr.length; i++) {
+//         output.push(arr[i] * 2);
+//     }
+//     return output; 
+// };
+
+// largest and secondLargest variables 
+// if num > largest 
+// secondLargest = largest
+// largest = num; 
+// else if num > secondLargest 
+  // secondLargest = num; 
+
+const secondLargest = (arr) => {
+    let largest = -Infinity; 
+    let secondLargest = -Infinity; 
+
+    for(let i = 0; i < arr.length; i++) {
+        const num = arr[i];
+        if(num > largest) {
+            secondLargest = largest;
+            largest = num; 
+        } else if(num > secondLargest) {
+            secondLargest = num; 
+        }
+    }
+
+    return secondLargest;
+}
+console.log(secondLargest([6, 4, 8, 7]))
+

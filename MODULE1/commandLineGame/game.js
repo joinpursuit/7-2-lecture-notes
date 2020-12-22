@@ -85,4 +85,48 @@ const leaveGame = () => {
     process.exit();
 }
 
-play();
+// play();
+
+
+function adventure() {
+    let res = readLineSync.question("You're outside a building. would you like to go in or or a walk?")
+    if(res === "in") {
+        inBuilding()
+    } else {
+        goForWalk()
+    }
+}
+
+function inBuilding() {
+    let res;
+    while(res !== "elevator" && res !== "stairs") {
+        res = readLineSync.question("Elevator or stairs?").trim().toLowerCase();
+    }
+    if(res === "elevator") {
+        inElevatorFunction()
+    } else if(res === "stairs") {
+        stairsFunction();
+    }
+}
+
+// inBuilding();
+
+function floorThree(){
+    let weapons = ["sling shot", "bat", "pizza", "gun", "candlestick"];
+    console.log("On the table you see a")
+    for(let i = 0; i < weapons.length; i++) {
+        console.log(weapons[i]);
+    }
+}
+
+// floorThree();
+
+function inElevatorFunction(){
+    let resInt = readLineSync.questionInt("Which floor");
+    console.log("Elevator is broken you go to floor 3");
+    floorThree()
+}
+
+function stairsFunction(){}
+
+function goForWalk(){}
