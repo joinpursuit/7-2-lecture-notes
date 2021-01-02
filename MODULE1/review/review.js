@@ -155,5 +155,73 @@ const secondLargest = (arr) => {
 
     return secondLargest;
 }
-console.log(secondLargest([6, 4, 8, 7]))
+// console.log(secondLargest([6, 4, 8, 7]))
+// console.log(secondLargest([-3, -2, -7]))
 
+
+const middleElements = (arr) => {
+    let midIdx = Math.floor(arr.length / 2);
+    if(arr.length % 2 === 1) { // outcome for odd
+        return arr[midIdx];
+    } else { // outcome for even
+        return [ arr[midIdx - 1], arr[midIdx] ];
+    }
+}
+
+// console.log(middleElements(["cat", "dog", "pig", "whale"]));
+
+// write a function that returns the last 3 elements as an array. 
+// if the array has less than three elements return null
+
+const lastThree = (arr) => {
+    if(arr.length < 3) {
+        return null; 
+    }
+    return arr.slice(-3);
+}
+// console.log(lastThree([1, 2, 3, 4, 5]))
+
+// let arr = ["cat", "dog", "bird"]
+// console.log(arr.slice(0));
+// console.log(arr.slice(1));
+// console.log(arr.slice(0, 1));
+// console.log(arr.slice(-3));
+
+// const whileLoopPractice = () => {
+//     let i = 0;  // initialization 
+
+//     while(i <= 100) { // condition while true 
+
+//         console.log(i) // code block (where the logic goes )
+
+//         i += 2 // step towards the end
+//     }
+// }
+
+// for(let i = 0; i <= 100; i += 2) {
+//     console.log(i)
+// }
+
+// whileLoopPractice();
+
+// use for of if you do not care about the index. 
+
+const arrIncludesWithForOf = (arr, target) => {
+  for (let el of arr) { // el is the element of the array to update with each iteration.
+    if (el === target) {
+      return true;
+    }
+  }
+  return false;
+};
+
+const range = (low, high) => { // hint recurssion. 
+    let sum = 0; 
+    while(low <= high) {
+        sum += low; 
+        low++;
+    }
+    return sum; 
+}
+
+console.log(range(5, 10))
