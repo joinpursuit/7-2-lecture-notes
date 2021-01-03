@@ -224,4 +224,48 @@ const range = (low, high) => { // hint recurssion.
     return sum; 
 }
 
-console.log(range(5, 10))
+// console.log(range(5, 10))
+
+function greeting() {
+    let testVariable = "testVariable" // testVariable is block scoped and can only be accessed inside of greeting
+    console.log(testVariable);
+    return "hello!";
+}
+// console.log(testVariable); // test variable is NOT in the scope b/c let is block scoped
+
+// console.log(greeting() === "hello!")
+
+//console log prints to the console (that' it!) It is for your viewing pleasure, evaluates to undefined 
+// return is what a function evaluates to. This is for the computer. YOu can USE these values. 
+
+//Argument - what is being passed into the function
+
+function doubleNum(number) { // set up parameter when we define a function - a future argument that someone will give a function
+    return number * 2; 
+}
+
+function squareNum(integer) {
+    return integer * integer; 
+}
+
+function doubleSquare(num) {
+    let doubled = doubleNum(num);
+    let squared = squareNum(doubled);
+    return squared
+}
+
+function math(int, name) {
+    if(name === "double") {
+        return doubleNum(int)
+    } else if(name === "square") {
+        return squareNum(int)
+    } else if(name === "doubleSquare") {
+        return doubleSquare(int)
+    } else {
+        return "NO MATH LISTED!"
+    }
+}
+
+console.log(math(4));
+
+
