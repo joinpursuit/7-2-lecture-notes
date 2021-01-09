@@ -238,3 +238,9 @@ console.log(occurrenceCounter(animalArray));
 // object oriented programming 
 
 
+// 0
+// undefined
+// NaN
+// ""
+// null
+// false

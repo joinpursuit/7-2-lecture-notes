@@ -82,7 +82,7 @@ const oneToFive = () => {
 
 // console.log(oneToFive());
 
-// strings in JS are a primitive (just like numbers). And is thus immutable. 
+// strings in JS are a primitive (just like numbers). And are thus immutable. 
 // strings cannot be changed. 
 // we can change the variable with reassignment but not the string itself. 
 
