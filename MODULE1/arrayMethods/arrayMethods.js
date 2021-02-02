@@ -120,29 +120,29 @@ const myMap = (arr, callback) => {
   return output;
 };
 
-//write a function that iteraters through and array and returns each element + 2. 
+//write a function that iteraters through and array and returns each element + 2.
 
 const plusTwo = (arr) => {
   let output = arr.map((el) => {
-    return el + 2; 
-  })
-  return output; 
-}
+    return el + 2;
+  });
+  return output;
+};
 
 // console.log(plusTwo([1, 2, 3, 4]))
 
-// Write a function that takes in an array of strings and returns 
-// a new arrray where every stirng has been capitilaized and has an ! at the end. 
+// Write a function that takes in an array of strings and returns
+// a new arrray where every stirng has been capitilaized and has an ! at the end.
 
 const shout = (words) => {
   return words.map((word) => {
-      return word.toUpperCase() + "!";
-  })
-}
+    return word.toUpperCase() + "!";
+  });
+};
 
 // console.log(shout(["hello", "world"])) // => ["HELLO!", "WORLD!"]
 
-//write a function that takes in array and returns a new array where every element 
+//write a function that takes in array and returns a new array where every element
 // has been mulitipled by its index
 
 // const multByIndex = (numbers) => {
@@ -154,104 +154,135 @@ const shout = (words) => {
 // console.log(multByIndex([1, 2, 3, 4, 5])) // => [0, 2, 6, 12, 20]
 
 // const sum = (arr) => {
-//   let sum = 0; 
-//   arr.map(el => { // DONT USE MAP FOR SIDE EFFECTS LIKE THIS! 
+//   let sum = 0;
+//   arr.map(el => { // DONT USE MAP FOR SIDE EFFECTS LIKE THIS!
 //     sum += el
 //   })
-//   return sum; 
+//   return sum;
 // }
 // console.log(sum([5, 5, 6]))
 
-//filter is an array method that evaluates to a new array (non mutative) of only the elements 
-// that had a truthy return from the callback. 
+//filter is an array method that evaluates to a new array (non mutative) of only the elements
+// that had a truthy return from the callback.
 
 const onlyStrings = (arr) => {
   let output = arr.filter((el) => {
-    return typeof el === "string"
-  })
+    return typeof el === "string";
+  });
 
-  return output; 
-}
+  return output;
+};
 // console.log(onlyStrings(["hello", 4, 5, "cat"]));
 
 //write a function that takes in an array and filters it to only have odd numbers.
 
 const onlyOdds = (nums) => {
   return nums.filter((el) => {
-    return el % 2 === 1; 
-  })
-}
+    return el % 2 === 1;
+  });
+};
 
 // console.log(onlyOdds([1, 2, 3, 4, 5])) // => [1, 3, 5]
 
-//write a function that takes in an array 
+//write a function that takes in an array
 // and returns a new array with only words that were already capitalized.
 
-const onlyCaps = words => {
+const onlyCaps = (words) => {
   return words.filter((word) => {
     return word === word.toUpperCase();
-  })
-}
+  });
+};
 
 // console.log(onlyCaps(["Hello", "CAT", "word"])) // => ["CAT"]
 
 const myFilter = (arr, callback) => {
   let output = [];
-  for(let i = 0; i < arr.length; i++) {
-    if(callback(arr[i])) {
-      output.push(el)
-    } 
+  for (let i = 0; i < arr.length; i++) {
+    if (callback(arr[i])) {
+      output.push(el);
+    }
   }
-  return output; 
-}
+  return output;
+};
 
-// every is an array method that evaluates into a boolean. 
-// It checks to see if every element passed into the callback evaluates to truthy. 
+// every is an array method that evaluates into a boolean.
+// It checks to see if every element passed into the callback evaluates to truthy.
 
 const isAllNumsFive = (nums) => {
   return nums.every((num) => {
-    return num === 5; 
-  })
-}
+    return num === 5;
+  });
+};
 
 // console.log(isAllNumsFive([5, 6, 5]))
 
-// //write a function that takes in an array and determines if every element in the array 
+// //write a function that takes in an array and determines if every element in the array
 // // is even
 
 const allEvens = (nums) => {
   return nums.every((num) => {
-    return num % 2 === 0; 
-  })
-}
+    return num % 2 === 0;
+  });
+};
 // console.log(allEvens([2, 4, 6])) // => true
 // console.log(allEvens([2, 4, 7])) // => false
 
-//write a function that determines if all words in an array of a length of five or more. 
+//write a function that determines if all words in an array of a length of five or more.
 
 const allFiveOrMore = (words) => {
   return words.every((word) => {
-    return word.length >= 5
-  })
-}
+    return word.length >= 5;
+  });
+};
 
-// console.log(allFiveOrMore(["hello", "dollys"])) // => true 
-// console.log(allFiveOrMore(["hello", "cat"])) // => false 
+// console.log(allFiveOrMore(["hello", "dollys"])) // => true
+// console.log(allFiveOrMore(["hello", "cat"])) // => false
 
 const myEvery = (arr, callback) => {
-  for(let i = 0; i < arr.length; i++) {
-    if(!callback(arr[i], i)) {
+  for (let i = 0; i < arr.length; i++) {
+    if (!callback(arr[i], i)) {
       return false;
     }
   }
-  return true; 
-}
+  return true;
+};
 
-// Sort! Sort is an array method, that sorts our data. => is mutative 
+// Sort! Sort is an array method, that sorts our data. => is mutative
 // let arr = ["sparky", "mike", "corey", "sam", "peter"];
 // arr.sort();
 // console.log(arr)
 
 // let nums = [2, 1, 11, 12, 5]
-// nums.sort((a, b) => a - b);
+// nums.sort((a, b) => a - b);|««
 // console.log(nums)
+
+// Write a function that takes in an array of people and sorts them by age and returns
+// a new array of just the names.
+
+// const sortPeopleByAge = (people) => {
+//   people.sort((person1, person2) => { // sort is mutative so I'm not saving as a new variable
+//     return person1.age - person2.age;
+//   });
+//   return people.map((person) => {
+//     return person.name;
+//   });
+// };
+const sortPeopleByAge = people => {
+  return people
+    .sort((person1, person2) => {
+      return person1.age - person2.age;
+    })
+    .map((person) => {
+      return person.name;
+    })
+    
+};
+
+let persons = [
+  { name: "Corey", age: 100 },
+  { name: "Sam", age: 18 },
+  { name: "Sparky", age: 500 },
+  { name: "Peter", age: 50 },
+];
+
+console.log(sortPeopleByAge(persons)); // => ["Sam", "Peter", "Corey", "Sparky"]

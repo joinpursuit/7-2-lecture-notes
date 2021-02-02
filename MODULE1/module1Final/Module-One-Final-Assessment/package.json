@@ -1,0 +1,23 @@
+{
+  "name": "module-one-final-assessment",
+  "version": "1.0.0",
+  "description": "Assessment for pursuit FSW module 1",
+  "main": "isOdd.js",
+  "dependencies": {},
+  "devDependencies": {
+    "jest": "^26.6.3"
+  },
+  "scripts": {
+    "test": "jest --verbose"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/joinpursuit/Module-One-Final-Assessment.git"
+  },
+  "author": "Ben Stone",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/joinpursuit/Module-One-Final-Assessment/issues"
+  },
+  "homepage": "https://github.com/joinpursuit/Module-One-Final-Assessment"
+}
