@@ -1,0 +1,58 @@
+h1 {
+  color: green;
+  font-size: 60px;
+}
+
+h2 {
+  font-family: cursive;
+  color: pink;
+  font-size: 25px;
+}
+
+
+body {
+    background: yellow;
+}
+
+
+ul {
+    border: 5px solid red; 
+    padding: 10px;
+    margin: 15px;
+}
+
+ol {
+    margin-left: 10px;
+    /* list-style: square; */
+    font-style: italic;
+}
+
+section {
+    width: 350px;
+    border: 5px solid gray;
+    padding: 10px;
+    margin: 15px;
+    margin-top: 25px;
+}
+
+section form {
+    border: 1px solid red; 
+    color: red; 
+}
+
+input[type="text"] {
+    border: 1px solid black;
+    background-color: white;
+    width: 200px;
+    padding:5px; 
+}
+img {
+    width: 300px;
+    margin: auto; 
+}
+
+/* #greenHeader {
+    color: magenta;
+} */
+
+/* styling by id or class to style individual elements */

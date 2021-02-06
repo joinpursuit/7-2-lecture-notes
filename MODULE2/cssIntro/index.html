@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Intro To CSS</title>
+
+    <link rel="stylesheet" href="./reset.css" />
+    <link rel="stylesheet" href="./style.css" />
+
+  </head>
+  <body>
+      <header>
+          <nav>
+              <a href="./corhort.html">To The Class Page</a>
+          </nav>
+      </header>
+    <section>
+      <h1>This is my first web page</h1>
+      <p>How <em>exciting</em>!</p>
+      <p><strong>Isn't it!</strong></p>
+    </section>
+
+    <section>
+      <h2 id="greenHeader">Let's make a list</h2>
+      <ul>
+        <li>Zebra</li>
+        <li>Giraffe</li>
+        <li>
+          Cats
+          <ol>
+            <li>Lion</li>
+            <li>Tiger</li>
+          </ol>
+        </li>
+        <li>Bears</li>
+      </ul>
+    </section>
+    <section>
+      <h2>Links</h2>
+      <a href="https://www.google.com" target="_blank">Take me to google</a>
+
+      <h2>Table</h2>
+      <table>
+        <tr>
+          <th>Column 1</th>
+          <th>Column 2</th>
+          <th>Column 3</th>
+        </tr>
+        <tr>
+          <td>Row 1, cell 1</td>
+          <td>Row 1, cell 2</td>
+          <td>Row 1, cell 3</td>
+        </tr>
+        <tr>
+          <td>Row 2, cell 1</td>
+          <td>Row 2, cell 2</td>
+          <td>Row 2, cell 3</td>
+        </tr>
+        <tr>
+          <td>Row 3, cell 1</td>
+          <td>Row 3, cell 2</td>
+          <td>Row 3, cell 3</td>
+        </tr>
+      </table>
+    </section>
+    <section>
+      <h2>Form</h2>
+      <form>
+        <label
+          >First Name:
+          <input type="text" name="firstname" placeholder="Corey" />
+        </label>
+        <br />
+        Favorite Primary Color:
+        <input type="radio" id="yellow" name="color" value="yellow" />
+        <label for="yellow">yellow</label>
+        <input type="radio" id="red" name="color" value="red" />
+        <label for="red">red</label>
+        <input type="radio" id="blue" name="color" value="blue" />
+        <label for="blue">blue</label>
+        <br />
+        Favorite Toppings:
+        <input type="checkbox" id="cheese" name="topping" value="cheese" />
+        <label for="cheese">cheese</label>
+        <input type="checkbox" id="sausage" name="topping" value="sausage" />
+        <label for="sausage">sausage</label>
+        <input
+          type="checkbox"
+          id="pineapple"
+          name="topping"
+          value="pineapple"
+        />
+        <label for="pineapple">pineapple</label>
+        <br />
+
+        <input type="submit" value="Click Here" />
+      </form>
+
+    </section>
+
+    <form>
+        Name 2
+        <input type="text" />
+    </form>
+
+    <section>
+        <img src="../cute_cat.jpg" alt="Cute Kitty" />
+    </section>
+  </body>
+</html>
+
+<!-- Selectors - targeting the specific tags 
+Properties - what properties we want to change 
+Values - what we want the properties to change to.  -->
