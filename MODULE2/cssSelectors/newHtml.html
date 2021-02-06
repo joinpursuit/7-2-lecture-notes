@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Intro To CSS</title>
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <section class="section section-first">
+      <h1>This is my first web page</h1>
+      <p>How <em>exciting</em>!</p>
+      <p><strong>Isn't it!</strong></p>
+    </section>
+
+    <section class="section"  id="section-two">
+      <h2 id="greenHeader">Let's make a list</h2>
+      <ul id="top_unordered_list">
+        <li>Zebras are the coolest <br> animal in the planet</li>
+        <li>Giraffe</li>
+        <li>
+          Cats
+          <ol>
+            <!-- <li style="color:green" class="list-item-text">Lion</li> -->
+            <li class="list-item-text">Lion</li>
+            <li>Tiger</li>
+          </ol>
+        </li>
+        <li>Bears</li>
+      </ul>
+      <ul id="last_list">
+        <li id="zebra">Zebra</li>
+        <li>
+          Cats
+          <ol>
+            <li>Lion
+                <ol></ol>
+                <ol></ol>
+            </li>
+            <li>Tiger</li>
+          </ol>
+        </li>
+        <li>Bears</li>
+      </ul>
+    </section>
+    <section class="section">
+      <h2>Links</h2>
+      <a href="https://www.google.com" target="_blank">Take me to google</a>
+       <br>
+       <br>
+      <a href="https://linkedin.com">Linkedin</a>
+      <br>
+      <br>
+      <a href="https://animedreaming.tv">Anime Website</a>
+      <br>
+      <br>
+      <a href="https://animedreaming.tv">Anime Website</a>
+      <h2>Table</h2>
+      <table>
+        <tr>
+          <th>Column 1</th>
+          <th>Column 2</th>
+          <th>Column 3</th>
+        </tr>
+        <tr>
+          <td>Row 1, cell 1</td>
+          <td>Row 1, cell 2</td>
+          <td>Row 1, cell 3</td>
+        </tr>
+        <tr>
+          <td>Row 2, cell 1</td>
+          <td>Row 2, cell 2</td>
+          <td>Row 2, cell 3</td>
+        </tr>
+        <tr>
+          <td>Row 3, cell 1</td>
+          <td>Row 3, cell 2</td>
+          <td>Row 3, cell 3</td>
+        </tr>
+      </table>
+    </section>
+    <section class="section">
+      <h2>Form</h2>
+      <form>
+        <label
+          >First Name:
+          <input id="first-name" type="text" name="firstname" placeholder="Corey" />
+        </label>
+        <br />
+        <input type="text">
+        <input type="text"><input type="text">
+        Favorite Primary Color:
+        <input type="radio" id="yellow" name="color" value="yellow" checked />
+        <label for="yellow">yellow</label>
+        <input type="radio" id="red" name="color" value="red" />
+        <label for="red">red</label>
+        <input type="radio" id="blue" name="color" value="blue" />
+        <label for="blue">blue</label>
+        <br />
+        Favorite Toppings:
+        <input type="checkbox" id="cheese" name="topping" value="cheese" />
+        <label for="cheese">cheese</label>
+        <input type="checkbox" id="sausage" name="topping" value="sausage" />
+        <label for="sausage">sausage</label>
+        <input
+          type="checkbox"
+          id="pineapple"
+          name="topping"
+          value="pineapple"
+        />
+        <label for="pineapple">pineapple</label>
+        <br />
+
+        <input type="submit" value="Click Here" />
+      </form>
+
+    </section>
+
+    <form>
+        Name 2
+        <input type="text" />
+    </form>
+
+    <section class="section">
+        <img src="../cute_cat.jpg" alt="Cute Kitty" />
+    </section>
+  </body>
+</html>
+
+<!-- Selectors - targeting the specific tags 
+Properties - what properties we want to change 
+Values - what we want the properties to change to.  -->

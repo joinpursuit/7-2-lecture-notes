@@ -1,0 +1,126 @@
+#section-two{
+    padding: 20px;
+    margin: 40px;
+    /* background-color: yellow; */
+}
+
+
+.section {
+    border: 1px solid black;
+    background-color: aqua;
+    color: black;
+}
+
+.section-first {
+    padding: 50px;
+    margin: 50px;
+    background-color: rgb(255, 30, 0);
+}
+
+
+
+/* Child selector */
+
+
+/* ul > li > ol > li {
+    color: blue;
+}  */
+
+#top_unordered_list > li > ol > li {
+    color: blue !important;
+}
+
+
+/* desecendent selector */
+ul li ol li {
+    text-decoration: underline;
+    color: red;
+}
+
+
+/* Adjacent Selector */
+
+/*
+#zebra + li {
+    padding: 50px;
+}
+ */
+
+ul >li + li {
+    padding: 50px;
+}
+
+/* pusedo class - deal with the state of the element */
+/* 
+section:hover{
+    background-color: darkblue;
+} */
+
+li:nth-child(3) {
+    font-size: 100px;
+}
+
+/* Pusedo Elements */
+li::first-letter {
+    font-size:60px;
+}
+
+li::first-line {
+    text-decoration: underline;
+}
+
+
+/*  Advance Selectors */
+
+/*  Attribute Selectors */
+input[checked]{
+    margin: 100px
+}
+
+
+/* regex - regular expressions */
+
+/* is exactly what the value is */
+a[href="https://www.google.com"]{
+    text-decoration: none;
+    color:darkred
+}
+
+/* ^ - starts with this value */
+a[href^="https"]{
+    text-decoration: none;
+    color:rgb(30, 255, 0)
+}
+
+/* $ - elements that end with this text */
+a[href$=".tv"]{
+    text-decoration: none;
+    color:rgb(255, 0, 43)
+}
+
+/* 
+     * - a substring that holds this value
+        true
+*/
+a[href*="dream"]{
+    font-weight: lighter;
+    padding: 5px;
+    margin: 10px;
+    color:black;
+}
+
+section[class*="tion"]{
+    background-color: dimgrey;
+}
+
+section[id$="-two"]{
+    background-color:gold;
+}
+
+
+
+
+
+
+
+
