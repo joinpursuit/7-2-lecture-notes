@@ -1,0 +1,121 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+/*
+    DISPLAYS
+    inline: elements can't use height and width
+    inline-block: are inline elements with height and width
+    block: elements can use height and width
+    none: removes the element from the screen
+*/
+
+/*
+    Position property gives us access to 4 other css properties
+    top,
+    bottom,
+    left,
+    right,
+    z-index
+ */
+
+ /* 
+    POSITION: static - default position
+    Mostly used to remove any position css rules
+ */
+
+ /* 
+    POSITION:  relative - relative to itself
+ */
+
+ /* 
+    POSITION: absolute - the values for top, bottom,
+    left, and right are relative to the parent of 
+    position relative or absolute
+ */
+
+  /* 
+    POSITION:  fixed - relative to the broswers view port
+    it stays fixed in that same position
+ */
+
+ body{
+     padding-bottom:4000px;
+ }
+
+.outer-container{
+    width: 200px;
+    height: 200px;
+}
+
+/* span {
+    display:block;
+    position: relative;
+    top: 20px;
+    left:20px;
+} */
+
+.first{
+    background-color: lightseagreen;
+    /* position: relative; */
+    top: 20px;
+    left:20px;
+}
+
+.inner-container {
+    background-color: midnightblue;
+    height:100px;
+    width: 200px;
+    position: absolute;
+    top: 20px;
+    left:20px;
+}
+
+.second{
+    background-color: lightslategray;
+    /* position: sticky; */
+    top:20px;
+   
+}
+.third {
+    background-color: magenta;
+}
+
+/* 
+    A reason to use the static position
+.cancel-pos {
+    position: static;
+    margin-top: 20px;
+} */
+
+/* 
+    z index - controls the vertical stacking of elements
+*/
+
+.block{
+    display: block;
+    width:100px;
+    height:100px;
+    position: fixed;
+}
+
+.block:hover{
+    z-index:1;
+}
+
+.second_{
+    background-color: red;
+    top:20px;
+    left:20px;
+}
+
+.first_{
+    background-color: blue;
+    top:40px;
+    left:40px;
+}
+
+.third_{
+    background-color: green;
+}

@@ -46,7 +46,7 @@ ul li ol li {
 }
  */
 
-ul >li + li {
+ul > li + li {
     padding: 50px;
 }
 
