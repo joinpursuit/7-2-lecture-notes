@@ -25,6 +25,18 @@
 // innerHTML => shows the html and can be assigned new HTML
 // innerText => shows human readable text and can be assigned. 
 
-const h1 = document.getElementById("h1-tag");
-debugger
-h1.innerText = "Howdy Partner"
+// const h1 = document.getElementById("h1-tag");
+// debugger
+// h1.innerText = "Howdy Partner"
+
+// const userName = prompt("What is your name?!");
+// const h1 = document.getElementById("h1-tag");
+// const titleTag = document.querySelector("title");
+// h1.innerText = userName; 
+// titleTag.innerText = userName; 
+
+const changeHeader = () => {
+  const input = document.querySelector("#header-change");
+  const h1 = document.getElementById("h1-tag");
+  h1.innerText = input.value;
+}
