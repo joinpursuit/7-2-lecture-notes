@@ -57,3 +57,10 @@ const replaceWithStar = () => {
 
     p.innerText = output; 
 }
+
+const sumNums = () => {
+    const num1 = Number(document.getElementById("num1").value); 
+    const num2 = Number(document.getElementById("num2").value); 
+    const p = document.getElementById("sum-of-nums");
+    p.innerText = num1 + num2;
+}
