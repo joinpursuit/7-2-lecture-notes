@@ -6,3 +6,10 @@ document.getElementById('randomNum').innerText = Math.floor(Math.random()* 10 + 
 // a button event.
 // Then replace the h1 text with the product of those two numbers.
 // Write your solution using querySelector
+
+const multiply = () => {
+    let h1 = document.querySelector("#randomNum");
+    let number = Number(document.querySelector("#numInput").value);
+    let randomNum = Number(document.querySelector("#randomNum").textContent);
+    h1.textContent = number + randomNum
+}
