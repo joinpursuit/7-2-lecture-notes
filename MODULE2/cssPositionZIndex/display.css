@@ -119,3 +119,13 @@
 .third_{
     background-color: green;
 }
+
+
+#libraries{
+    position: relative;
+    left:10%
+}
+
+#languages{
+    left:5%
+}

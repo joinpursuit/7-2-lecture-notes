@@ -1,0 +1,1 @@
+// Solve this solution using querySelectorAll and querySelector 
