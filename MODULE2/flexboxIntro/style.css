@@ -1,0 +1,79 @@
+
+/* parent must be the one with the flex and be styling all children */
+
+/* justify-content is prop on the main axis */
+/* => center - to center things 
+  => space-between - children as far apart as possible
+  => space-around - space around between children twice as much edge 
+  => space-evenly = even spacing between everything */
+
+/* align-items is a property that works on the cross axis */
+/* => default property is stretch to fit */
+/* center - center on cross axis */
+/* flex-end - end of cross axis */
+/* flex-start - start of cross axis */
+
+/* flex-direction - changes the main and cross axis */
+
+/* flex-wrap: wrap - allows your items to wrap */
+
+nav {
+  height: 125px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+main {
+  height: 500px;
+  background: lightblue;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+div {
+  background: lightgreen;
+  padding: 100px;
+  font-size: 50px;
+  width: 30%;
+  text-align: center;
+}
+img {
+  display: block;
+  height: 200px;
+  width: 200px;
+}
+
+.images {
+  background: lightblue;
+  /* height: 900px; */
+  display: flex;
+  flex-wrap: wrap;
+}
+
+
+/* media queries should be at the bottom of the file */
+/* best practice is to do mobile first design */
+
+@media screen and (max-width: 800px) {
+    /* img {
+        width: 100%;
+        height:auto;
+    } */
+    main {
+        background: lightsalmon
+    }
+}
+
+@media screen and (max-width: 500px) {
+    main {
+        background: black; 
+    }
+}
+
+@media screen and (max-width: 400px) {
+    main {
+        background: green; 
+    }
+}
