@@ -79,6 +79,38 @@ form.addEventListener("submit", (e) => {
     });
 });
 
-Create an select bar with numbers 1 - 50 (don't hand write these)
-The user should select one of the numbers and see that many 
-random dogs
+// Create an select bar with numbers 1 - 50 (don't hand write these)
+// The user should select one of the numbers and see that many 
+// random dogs
+const select = document.querySelector("select");
+
+const createOptions = (num) => {
+    for(let i = 1; i <= num; i++) {
+        const option = document.createElement("option");
+        option.textContent = i + " number of dogs";
+        option.value = i; 
+        select.appendChild(option)
+    }
+}
+createOptions(25);
+
+select.addEventListener("change", (e) => {
+    const numOfDogs = Number(e.target.value);
+    fetch(`https://dog.ceo/api/breeds/image/random/${numOfDogs}`)
+        .then(res => {
+           if(!res.ok) {
+               throw Error("Something went wrong")
+           }
+           return res.json();
+        }).then(res => {
+            const dogPics = document.querySelector("#dog-pics");
+            dogPics.innerHTML = "";
+            res.message.forEach(dogURL => {
+                const img = document.createElement("img");
+                img.src = dogURL;
+                dogPics.appendChild(img);
+            })
+        }).catch(err => {
+            console.log(err);
+        })
+})
