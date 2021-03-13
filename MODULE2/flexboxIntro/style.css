@@ -44,12 +44,28 @@ img {
   height: 200px;
   width: 200px;
 }
+/*
+ flex-direction:row
+ By default main axis is the horizontal
+ and the cross axis is vertical 
+ */
 
+ /* 
+  flex-direction: column
+  the main axis is vertical
+  the cross axis is horizontal 
+ */
+ 
 .images {
-  background: lightblue;
+  /* background: lightblue; */
   /* height: 900px; */
   display: flex;
+  /* flex-direction: column; */
   flex-wrap: wrap;
+  /* justify-content: center; */
+  /* height: 100%; */
+  /* align-items: center; */
+  /* border: 3px solid black; */
 }
 
 
