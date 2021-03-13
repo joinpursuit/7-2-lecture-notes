@@ -55,29 +55,29 @@
 // Negative with fetch is that 4xx and 5xx level errors
 // still resolve as fulfilled
 
-const form = document.querySelector("form");
-form.addEventListener("submit", (e) => {
-  e.preventDefault();
-  const input = document.querySelector("#dog-input");
-  fetch(`https://dog.ceo/api/breed/${input.value}/images/random/3`)
-    .then((res) => {
-      if (!res.ok) {
-        throw Error("Something went wrong, status " + res.status);
-      }
-      return res.json();
-    })
-    .then((res) => {
-      const body = document.body;
-      res.message.forEach((dog) => {
-        const img = document.createElement("img");
-        img.src = dog;
-        body.appendChild(img);
-      });
-    })
-    .catch((err) => {
-      console.log(err);
-    });
-});
+// const form = document.querySelector("form");
+// form.addEventListener("submit", (e) => {
+//   e.preventDefault();
+//   const input = document.querySelector("#dog-input");
+//   fetch(`https://dog.ceo/api/breed/${input.value}/images/random/3`)
+//     .then((res) => {
+//       if (!res.ok) {
+//         throw Error("Something went wrong, status " + res.status);
+//       }
+//       return res.json();
+//     })
+//     .then((res) => {
+//       const body = document.body;
+//       res.message.forEach((dog) => {
+//         const img = document.createElement("img");
+//         img.src = dog;
+//         body.appendChild(img);
+//       });
+//     })
+//     .catch((err) => {
+//       console.log(err);
+//     });
+// });
 
 // Create an select bar with numbers 1 - 50 (don't hand write these)
 // The user should select one of the numbers and see that many
@@ -180,9 +180,11 @@ fetch("http://localhost:3000/users/1/cars")
       const fetchData = {
         method: "POST",
         body: { username: input.value },
-        headers: { 'Content-Type': 'application/json' },
+        // headers: {
+        //   "Accept": "application/json",
+        //   "Content-Type": "application/json",
+        // },
       };
-      debugger
       fetch("http://localhost:3000/users", fetchData).then(res => {
           if(!res.ok) throw Error("Error");
           return res.json();
@@ -194,18 +196,36 @@ fetch("http://localhost:3000/users/1/cars")
   })
 
   const button = document.querySelector("#show-users");
+  const allUsers = document.querySelector("#all-users");
+
   button.addEventListener("click", () => {
-      const ul = document.querySelector("#all-users");
 
       fetch("http://localhost:3000/users").then(res => {
           if(!res.ok) throw Error("NOT OK")
           return res.json();
       }).then(res => {
-          ul.innerHTML = "";
+          allUsers.innerHTML = "";
           res.users.forEach(user => {
               const li = document.createElement("li");
+              li.value = user.id; 
               li.textContent = user.username;
-              ul.appendChild(li)
+              allUsers.appendChild(li)
           })
       })
+  })
+
+  allUsers.addEventListener("click", (e) => {
+      const li = e.target; 
+      li.parentNode.removeChild(li);
+      fetch(`http://localhost:3000/users/${li.value}`, {method: "DELETE"})
+        .then(res => {
+            if(!res.ok) {
+                throw Error("NOT OKAY")
+            }
+            return res.json()
+        }).then(res => {
+            console.log(res);
+        }).catch(err => {
+            console.log(err);
+        })
   })
