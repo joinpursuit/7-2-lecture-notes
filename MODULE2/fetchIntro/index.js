@@ -177,13 +177,12 @@ fetch("http://localhost:3000/users/1/cars")
   userForm.addEventListener("submit", (e) => {
       e.preventDefault(); 
       const input = document.querySelector("#username");
+      const formData = new FormData(); 
+      formData.append("username", input.value)
       const fetchData = {
+          headers: { "Content-Type": "application/x-www-form-urlencoded" },
         method: "POST",
-        body: { username: input.value },
-        // headers: {
-        //   "Accept": "application/json",
-        //   "Content-Type": "application/json",
-        // },
+        body: "username=" + input.value,
       };
       fetch("http://localhost:3000/users", fetchData).then(res => {
           if(!res.ok) throw Error("Error");
