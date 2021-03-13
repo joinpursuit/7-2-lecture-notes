@@ -67,11 +67,11 @@ form.addEventListener("submit", (e) => {
       return res.json();
     })
     .then((res) => {
-      const body = document.body; 
+      const body = document.body;
       res.message.forEach((dog) => {
         const img = document.createElement("img");
         img.src = dog;
-        body.appendChild(img)
+        body.appendChild(img);
       });
     })
     .catch((err) => {
@@ -80,51 +80,52 @@ form.addEventListener("submit", (e) => {
 });
 
 // Create an select bar with numbers 1 - 50 (don't hand write these)
-// The user should select one of the numbers and see that many 
+// The user should select one of the numbers and see that many
 // random dogs
 const select = document.querySelector("select");
 
 const createOptions = (num) => {
-    for(let i = 1; i <= num; i++) {
-        const option = document.createElement("option");
-        option.textContent = i + " number of dogs";
-        option.value = i; 
-        select.appendChild(option)
-    }
-}
+  for (let i = 1; i <= num; i++) {
+    const option = document.createElement("option");
+    option.textContent = i + " number of dogs";
+    option.value = i;
+    select.appendChild(option);
+  }
+};
 createOptions(25);
 
 select.addEventListener("change", (e) => {
-    const numOfDogs = Number(e.target.value);
-    fetch(`https://dog.ceo/api/breeds/image/random/${numOfDogs}`)
-        .then(res => {
-           if(!res.ok) {
-               throw Error("Something went wrong")
-           }
-           return res.json();
-        }).then(res => {
-            const dogPics = document.querySelector("#dog-pics");
-            dogPics.innerHTML = "";
-            res.message.forEach(dogURL => {
-                const img = document.createElement("img");
-                img.src = dogURL;
-                dogPics.appendChild(img);
-            })
-        }).catch(err => {
-            console.log(err);
-        })
-})
+  const numOfDogs = Number(e.target.value);
+  fetch(`https://dog.ceo/api/breeds/image/random/${numOfDogs}`)
+    .then((res) => {
+      if (!res.ok) {
+        throw Error("Something went wrong");
+      }
+      return res.json();
+    })
+    .then((res) => {
+      const dogPics = document.querySelector("#dog-pics");
+      dogPics.innerHTML = "";
+      res.message.forEach((dogURL) => {
+        const img = document.createElement("img");
+        img.src = dogURL;
+        dogPics.appendChild(img);
+      });
+    })
+    .catch((err) => {
+      console.log(err);
+    });
+});
 
-//for other http requests other than GET, we can pass in an 
+//for other http requests other than GET, we can pass in an
 // optional object to fetch as a second argument
-
 
 // Example of Post request
 const fetchData = {
-    method: "POST", 
-    body: { name: "Corey"}, 
-    // headers: new Headers()
-}
+  method: "POST",
+  body: { name: "Corey" },
+  // headers: new Headers()
+};
 
 // fetch("https://jsonplaceholder.typicode.com/posts", fetchData)
 //     .then(res => {
@@ -133,23 +134,78 @@ const fetchData = {
 //         debugger
 //     })
 
-fetch("http://localhost:3000/users/1/cars").then(res => {
+fetch("http://localhost:3000/users/1/cars")
+  .then((res) => {
+    if (!res.ok) {
+      throw Error("Something went wrong");
+    }
     return res.json();
-}).then(res => {
-    return res.cars.length; 
-}).then(numberOfCars => {
-    fetch("http://localhost:3000/users/2/cars").then(res => {
-        return res.json()
-    }).then(res => {
+  })
+  .then((res) => {
+    return res.cars.length;
+  })
+  .then((numberOfCars) => {
+    fetch("http://localhost:3000/users/2/cars")
+      .then((res) => {
+        if (!res.ok) {
+          throw Error("Something went wrong");
+        }
+        return res.json();
+      })
+      .then((res) => {
         return res.cars.length + numberOfCars;
-    }).then(totalCars => {
-        fetch(`http://localhost:3000/cars/${totalCars}`).then(res => {
+      })
+      .then((totalCars) => {
+        fetch(`http://localhost:3000/cars/${totalCars}`)
+          .then((res) => {
+            if (!res.ok) {
+              throw Error("Something went wrong");
+            }
             return res.json();
-        }).then(carWeWantObj => {
-            console.log(carWeWantObj.car) // shows in console the goal car
-        })
-    })
-}).catch(err => {
+          })
+          .then((carWeWantObj) => {
+            // console.log(carWeWantObj.car); // shows in console the goal car
+          });
+      });
+  })
+  .catch((err) => {
     console.log(err);
-})
+  });
 
+
+  const userForm = document.querySelector("#user-form");
+  userForm.addEventListener("submit", (e) => {
+      e.preventDefault(); 
+      const input = document.querySelector("#username");
+      const fetchData = {
+        method: "POST",
+        body: { username: input.value },
+        headers: { 'Content-Type': 'application/json' },
+      };
+      debugger
+      fetch("http://localhost:3000/users", fetchData).then(res => {
+          if(!res.ok) throw Error("Error");
+          return res.json();
+      }).then(res => {
+          debugger
+      }).catch(err => {
+          console.log(err);
+      })
+  })
+
+  const button = document.querySelector("#show-users");
+  button.addEventListener("click", () => {
+      const ul = document.querySelector("#all-users");
+
+      fetch("http://localhost:3000/users").then(res => {
+          if(!res.ok) throw Error("NOT OK")
+          return res.json();
+      }).then(res => {
+          ul.innerHTML = "";
+          res.users.forEach(user => {
+              const li = document.createElement("li");
+              li.textContent = user.username;
+              ul.appendChild(li)
+          })
+      })
+  })
