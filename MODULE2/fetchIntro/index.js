@@ -114,3 +114,22 @@ select.addEventListener("change", (e) => {
             console.log(err);
         })
 })
+
+//for other http requests other than GET, we can pass in an 
+// optional object to fetch as a second argument
+
+
+// Example of Post request
+const fetchData = {
+    method: "POST", 
+    body: { name: "Corey"}, 
+    // headers: new Headers()
+}
+
+// fetch("https://jsonplaceholder.typicode.com/posts", fetchData)
+//     .then(res => {
+//         return res.json()
+//     }).then(res => {
+//         debugger
+//     })
+
