@@ -133,3 +133,23 @@ const fetchData = {
 //         debugger
 //     })
 
+fetch("http://localhost:3000/users/1/cars").then(res => {
+    return res.json();
+}).then(res => {
+    return res.cars.length; 
+}).then(numberOfCars => {
+    fetch("http://localhost:3000/users/2/cars").then(res => {
+        return res.json()
+    }).then(res => {
+        return res.cars.length + numberOfCars;
+    }).then(totalCars => {
+        fetch(`http://localhost:3000/cars/${totalCars}`).then(res => {
+            return res.json();
+        }).then(carWeWantObj => {
+            console.log(carWeWantObj.car) // shows in console the goal car
+        })
+    })
+}).catch(err => {
+    console.log(err);
+})
+
