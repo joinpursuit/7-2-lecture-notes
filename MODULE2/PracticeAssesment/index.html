@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Szechuan Sauce</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.21.1/axios.min.js"
+        integrity="sha512-bZS47S7sPOxkjU/4Bt0zrhEtWx0y0CRkhEp8IckzK+ltifIIE9EMIMTuT/mEzoIMewUINruDBIR/jJnbguonqQ=="
+        crossorigin="anonymous"></script>
+    <style>
+        h1 {
+            font-family: fantasy;
+        }
+
+        body {
+            background-color: black;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            color: white;
+        }
+
+        header {
+            width: 70%;
+            height: 150px;
+            display: flex;
+            justify-content: space-between;
+            padding: 0 30px;
+            background-color: green;
+            margin-bottom: 20px;
+        }
+
+        header>img {
+            height: 100px;
+        }
+
+        main {
+            display: none;
+            border: 5px solid white;
+            width: 70%;
+        }
+
+        input[type="text"] {
+            width: 380px;
+        }
+
+        #all-characters {
+            display: flex;
+            list-style: none;
+            width: 70%;
+            padding: 0;
+            margin: 0;
+            overflow-x: scroll;
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <h1>Rick & Morty</h1>
+        <img src="./assets/rickAndMorty.png">
+    </header>
+    <ul id="all-characters"></ul>
+    <main>
+        <section id="character-info">
+            <h3 id="character-name"></h3>
+            <img id="character-img">
+            <p id="character-status"></p>
+            <p id="character-location"></p>
+        </section>
+        <section id="character-comments-section">
+            <form>
+                <input id="comment" type="text">
+                <input type="submit">
+            </form>
+            <ul id="character-comments-ul"></ul>
+        </section>
+    </main>
+
+    <script>
+        const allCharacters = document.querySelector("#all-characters");
+        const main = document.querySelector("main");
+        const name = document.querySelector("#character-name")
+        const image = document.querySelector("#character-img")
+        const status = document.querySelector("#character-status")
+        const place = document.querySelector("#character-location")
+        const title = document.querySelector("title");
+        const form = document.querySelector("form");
+        const comments = document.querySelector("#character-comments-ul")
+
+        const getAllCharacters = async () => {
+            try {
+                const res = await axios.get("https://rickandmortyapi.com/api/character")
+                res.data.results.forEach(character => {
+                    const li = document.createElement("li");
+                    const img = document.createElement("img");
+                    const p = document.createElement("p");
+                    // console.log(character)
+                    img.src = character.image
+                    img.value = character.id
+                    p.innerText = character.name
+                    li.appendChild(img)
+                    li.appendChild(p)
+                    allCharacters.appendChild(li)
+                })
+            } catch (err) {
+                console.log(err)
+            }
+        }
+        getAllCharacters();
+
+        allCharacters.addEventListener("click", async (e) => {
+            main.style.display = "flex";
+            const url = `https://rickandmortyapi.com/api/character/${e.target.value}`;
+            const res = await axios.get(url);
+            name.innerText = res.data.name
+            image.src = res.data.image
+            status.innerHTML = `<b>Status:</b> ${res.data.status}`
+            place.innerHTML = `<b>Location:</b> ${res.data.location.name}`
+            title.innerText = res.data.name;
+        })
+
+        form.addEventListener("submit", (e) => {
+            e.preventDefault();
+            const comment = document.querySelector("#comment");
+            const li = document.createElement("li")
+            li.innerHTML = `<b>${title.textContent}:</b> ${comment.value}`
+            comments.appendChild(li);
+            comment.value = "";
+        })
+    </script>
+</body>
+
+</html>
