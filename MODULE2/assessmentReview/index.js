@@ -1,4 +1,3 @@
-const { Body } = require("node-fetch");
 
 const textInput = document.querySelector("input[type='text']");
 const select = document.querySelector("select");
