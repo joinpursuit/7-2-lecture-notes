@@ -1,0 +1,35 @@
+body{
+    font-family: monospace;
+    background-color: lavender;
+    display: flex;
+    flex-direction: column;
+    align-items: center; 
+    /* justify-content: center;  by default its effects elements in main axis*/
+}
+
+header {
+    width: 70%;
+    height: 150px;
+    display: flex;
+    flex-direction: row-reverse;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 30px;
+    padding: 10px;
+    background-color: skyblue;
+}
+
+img{
+    height: 150px;
+}
+
+main{
+    width: 60%;
+    display: flex;
+    flex-direction: column;
+    align-items: left;
+}
+
+input[type="text"]{
+    width:400px;
+}

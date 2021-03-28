@@ -33,7 +33,7 @@
         }
 
         header>img {
-            height: 100px;
+            height: 150px;
         }
 
         main {
@@ -90,6 +90,7 @@
         const form = document.querySelector("form");
         const comments = document.querySelector("#character-comments-ul")
 
+        // get all of the 
         const getAllCharacters = async () => {
             try {
                 const res = await axios.get("https://rickandmortyapi.com/api/character")
