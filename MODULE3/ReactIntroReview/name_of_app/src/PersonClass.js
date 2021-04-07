@@ -5,6 +5,11 @@ const person = {
   age: 26,
 };
 
+// What's the pont of classes in React? 
+// 1st - classes have access to lifecycle methods 
+// 2nd - classes can hold state (data)
+// 3rd (only one that's still relevant) - error boundries 
+
 class PersonClass extends Component {
     constructor(props) {
         super(props)
