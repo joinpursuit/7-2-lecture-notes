@@ -1,11 +1,11 @@
 import Person from "./Components/Person";
-import Post from "./Components/Post";
+// import Post from "./Components/Post";
+import Posts from './Components/Posts';
 import "./App.css";
 
-// when iterating through array of objects and mapping must add a 
-// key property. Key properties will be converted to strings and MUST 
+// when iterating through array of objects and mapping must add a
+// key property. Key properties will be converted to strings and MUST
 // be unique. Usually use the id of the object. By default it will be the index.
-
 
 const users = [
   {
@@ -40,10 +40,8 @@ function App() {
       {/* <Post title={post.title} body={post.body} /> */}
 
       {people}
-
-      {posts.map(post => {
-        return <Post title={post.title} body={post.body} key={post.title}/>
-      })}
+      
+      <Posts posts={posts}/>
 
       {/* {users.map((user) => {
         return <Person name={user.name} age={user.age} />;
@@ -57,3 +55,6 @@ export default App;
 // Pass title and body in as a props
 
 //Challenge - build out multiple posts and map through them.
+
+
+// class components are important for STATE and LIFECYCLE METHODS
