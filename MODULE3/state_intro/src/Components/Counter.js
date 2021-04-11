@@ -15,7 +15,7 @@ class Counter extends React.Component {
   }
 
   increment = () => {
-      this.setState((prevState) =>{    // when referring to current or what will be prevous state
+      this.setState((prevState, prevProps) =>{    // when referring to current or what will be prevous state
           return {count: prevState.count + 1} // technically you should pass in a callback instead of an object
       })
     // this.setState({ count: this.state.count + 1 });
@@ -25,9 +25,8 @@ class Counter extends React.Component {
     // state should NEVER be mutated
   };
 
-  incrementByTwo = () => {
-      this.setState({count: this.state.count + 2});
-  }
+  incrementByTwo = () => this.setState({count: this.state.count + 2});
+
 
   decrement = () => {
       const { count } = this.state;

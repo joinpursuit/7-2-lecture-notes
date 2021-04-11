@@ -10,6 +10,8 @@ class Color extends React.Component {
   };
 
   render() {
+    //   console.log("PROPS ", this.props)
+    //   console.log("STATE ", this.state)
     const { index, colors } = this.state;
     return (
       <div className={colors[index]}>
