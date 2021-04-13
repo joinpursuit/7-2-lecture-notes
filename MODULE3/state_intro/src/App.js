@@ -5,6 +5,7 @@ import ToggleText from './Components/ToggleText';
 import './App.css';
 import { Component } from 'react';
 import ShoppingCart from './Components/ShoppingCart';
+import Adder from './Components/Adder';
 
 function App() {
   return (
@@ -14,6 +15,7 @@ function App() {
      <Person name={"Peter"} />
      <ToggleText />
      <ShoppingCart />
+     <Adder />
      {/* <Counter someKeyInProps={someValueForKey}/> */}
     </div>
   );
