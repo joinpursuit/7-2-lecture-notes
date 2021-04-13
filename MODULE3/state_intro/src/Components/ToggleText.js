@@ -18,7 +18,11 @@ class ToggleText extends React.Component {
 
   render() {
     const { showText } = this.state;
-
+    // if(condition) {
+    //     return  
+    // } else {
+    //     return 
+    // }
     return (
       <div onMouseLeave={this.toggleText} onMouseEnter={this.toggleText}>
         <p>{showText ? "Remove cursor to HIDE Text" : "Show Text"}</p>
