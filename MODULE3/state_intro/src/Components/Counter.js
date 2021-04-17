@@ -14,6 +14,7 @@ class Counter extends React.Component {
     // this.increment = this.increment.bind(this); //old way of binding this to the context
   }
 
+ 
   increment = () => {
       this.setState((prevState, prevProps) =>{    // when referring to current or what will be prevous state
           return {count: prevState.count + 1} // technically you should pass in a callback instead of an object
