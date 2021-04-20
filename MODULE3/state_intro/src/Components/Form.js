@@ -96,7 +96,7 @@ class Form extends React.Component {
             value={favoriteIceCreamFlavors}
             onChange={this.handleChange}
           >
-            <option value="" selected disabled={true}>
+            <option value="" defaultValue disabled={true}>
               Select Flavor
             </option>
             <option value="strawberry">Strawberry</option>
