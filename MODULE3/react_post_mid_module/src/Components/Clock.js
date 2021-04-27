@@ -1,6 +1,4 @@
 import { Component } from 'react';
-import axios from 'axios' // npm install axios 
-import App from '../App';
 
 class Clock extends Component {
     constructor(props) {
@@ -17,7 +15,7 @@ class Clock extends Component {
         // console.log("componentDidMount")
         this.timer = setInterval(() => {
             this.tick();
-            console.log("TICKED")
+            // console.log("TICKED")
         }, 1000)
     }
 
@@ -31,7 +29,7 @@ class Clock extends Component {
     //     // always has a condition to make api call
     // }
     render() {
-        console.log(this.state.time)
+        // console.log(this.state.time)
         // console.log("render");
         return(
             <div>
