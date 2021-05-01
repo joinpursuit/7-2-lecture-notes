@@ -1,4 +1,5 @@
 import { Component } from "react";
+import DogContainer from "./DogContainer";
 import DogSelector from "./DogSelector";
 
 class DogAppTwo extends Component {
@@ -13,7 +14,7 @@ class DogAppTwo extends Component {
     return (
       <div>
         <DogSelector breed={breed} updateBreed={this.updateBreed} />
-        <h1>Dog container</h1>
+        <DogContainer breed={breed} />
       </div>
     );
   }

@@ -33,6 +33,6 @@ class Dog extends Component {
 
 export default Dog; 
 
-const Dog = ({url}) => {
-    return <img src={url}  alt= "Dog Pic" />
-}
+// const Dog = ({url}) => {
+//     return <img src={url}  alt= "Dog Pic" />
+// }
