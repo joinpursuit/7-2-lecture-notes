@@ -10,21 +10,21 @@ const styles = {
 class Dog extends Component {
     constructor(props) {
         super(props)
-        console.log("DOG Constructor")
+        // console.log("DOG Constructor")
     }
 
     componentDidMount() {
-        debugger
+        // debugger
     }
 
     componentWillUnmount() {
-        debugger
+        // debugger
     }
     componentDidUpdate(prevProps) {
-        debugger
+        // debugger
     }
     render() {
-        debugger
+        // debugger
         const { url } = this.props; 
         return <img src={url} alt="Dog Pic" style={styles.img}/>
     }
@@ -32,3 +32,7 @@ class Dog extends Component {
 
 
 export default Dog; 
+
+const Dog = ({url}) => {
+    return <img src={url}  alt= "Dog Pic" />
+}

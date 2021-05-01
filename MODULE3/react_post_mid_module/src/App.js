@@ -1,5 +1,6 @@
 import Clock from "./Components/Clock";
 import DogApp from "./Components/DogApp";
+import DogAppTwo from "./Components/DogAppTwo";
 import "./App.css";
 import React from "react";
 
@@ -14,9 +15,10 @@ class App extends React.Component {
   render() {
     return (
       <div className="App">
-        <DogApp />
+      <DogAppTwo />
+        {/* <DogApp />
         <button onClick={this.toggleClock}>Toggle Clock</button>
-        {this.state.showClock && <Clock />}
+        {this.state.showClock && <Clock />} */}
       </div>
     );
   }

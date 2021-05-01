@@ -31,7 +31,7 @@ class DogApp extends React.Component {
   render() {
     //   console.log("render");
     const { url } = this.state;
-    console.log(url);
+    // console.log(url);
     return (
       <div>
         <h2>Dog App</h2>

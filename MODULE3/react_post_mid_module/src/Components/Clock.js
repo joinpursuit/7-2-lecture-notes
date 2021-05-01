@@ -19,7 +19,7 @@ class Clock extends Component {
         }, 1000)
     }
 
-    componentWillUnmount() {
+    componentWillUnmount() { // clean up 
         clearInterval(this.timer)
     }
 
