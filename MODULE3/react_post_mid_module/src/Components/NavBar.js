@@ -4,10 +4,11 @@ import "./NavBar.css";
 const NavBar = () => {
     return(
         <nav>
+            <NavLink exact to="/">Home</NavLink>
+            <NavLink to="/characters">Rick & Morty Characters</NavLink>
             <NavLink to="/clock">Clock</NavLink>
             <NavLink to="/dogs">Dogs</NavLink>
             <NavLink to="/singledog">Single Dog</NavLink>
-            <NavLink exact to="/">Home</NavLink>
         </nav>
     )
 }
