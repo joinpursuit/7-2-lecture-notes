@@ -1,0 +1,9 @@
+nav {
+    display: flex;
+    justify-content: space-around;
+}
+
+nav .active {
+    font-size: bold;
+    color: red; 
+}
