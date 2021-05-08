@@ -11,6 +11,7 @@ import { Route, Switch } from "react-router-dom";
 import Characters from "./Components/Characters";
 import CharacterDisplay from "./Components/CharacterDisplay";
 import Person from "./Components/Person";
+import CounterAndResize from "./Components/CounterAndResize";
 
 //Switch allows me to only hit ONE Component in a switch
 
@@ -30,6 +31,7 @@ class App extends React.Component {
           <Route path={"/person/:name"} component={Person} />
           <Route path={"/characters/:id"} component={CharacterDisplay} />
           <Route path={"/characters"} component={Characters} />
+          <Route path={"/counter"} component={CounterAndResize}/>
           <Route path={"/clock"} component={Clock} />
           <Route path={"/dogs"} component={DogAppTwo} />
           <Route path={"/singledog"} component={DogApp} />
