@@ -15,28 +15,28 @@ import React, { useState, useEffect } from "react";
 // cannot nest hooks or conditionally use them
 // can make custom hooks - another day
 
+// useEffect(() => {
+//   const handleResize = () => {
+//     console.log("WINDOW RESIZE");
+//     setWindowSize(window.innerWidth);
+//   };
+//   window.addEventListener("resize", handleResize);
+//   console.log("HOOK RAN");
+//   return () => {
+//     window.removeEventListener("resize", handleResize);
+//     console.log("COMPONENT WILL UNMOUNT");
+//   };
+// }, []);
 const CounterAndResize = () => {
   const [count, setCount] = useState(0);
   const [windowSize, setWindowSize] = useState(window.innerWidth);
 
-  useEffect(() => {
-    const handleResize = () => {
-      console.log("WINDOW RESIZE");
-      setWindowSize(window.innerWidth);
-    };
-    window.addEventListener("resize", handleResize);
-    console.log("HOOK RAN");
-    return () => {
-      window.removeEventListener("resize", handleResize);
-      console.log("COMPONENT WILL UNMOUNT");
-    };
-  }, []);
 
-//   useEffect(() => {
-//     const handleResize = () => setWindowSize(window.innerWidth);
-//     window.addEventListener("resize", handleResize);
-//     return () => window.removeEventListener("resize", handleResize);
-//   }, []);
+  useEffect(() => {
+    const handleResize = () => setWindowSize(window.innerWidth);
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
 
   return (
     <section>
