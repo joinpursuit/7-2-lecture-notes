@@ -1,4 +1,4 @@
-import { Component } from "react";
+import { useState, useEffect, useRef } from "react";
 import axios from "axios";
 import Dog from "./Dog";
 
@@ -10,32 +10,34 @@ import Dog from "./Dog";
 
 // use your Dog.js for showing individual dogs.
 
-class DogContainer extends Component {
-  state = { imageURLs: [] };
+const DogContainer = ({breed}) => {
+  const [imageURLs, setImageURLs] = useState([])
+  const didMount = useRef(false);
 
-  fetchDogImages = async () => {
+
+  useEffect(() => {
+
+  const fetchDogImages = async () => {
     try {
-      const { breed } = this.props;
       const res = await axios.get(
         `https://dog.ceo/api/breed/${breed}/images/random/5`
       );
-      this.setState({imageURLs: res.data.message});
+      setImageURLs(res.data.message);
     } catch (error) {
       console.log(error);
-      this.setState({ imageURLs: [] });
+      setImageURLs([]);
     }
   };
 
-  componentDidUpdate(prevProps) {
-      const oldBreed = prevProps.breed; 
-      const newBreed = this.props.breed; 
-      if(oldBreed !== newBreed) {
-          this.fetchDogImages();
-      }
-  }
 
-  render() {
-      const { imageURLs } = this.state; 
+    if(didMount.current) {
+      fetchDogImages()
+    } else {
+      didMount.current = true; 
+    }
+  }, [breed])
+
+
     return (
       <section>
         <h1>Dog Container</h1>
@@ -44,7 +46,7 @@ class DogContainer extends Component {
         })}
       </section>
     );
-  }
+  
 }
 
 export default DogContainer;
