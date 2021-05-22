@@ -1,48 +1,52 @@
-import { Component } from "react";
-import axios from 'axios';
+import { useState, useEffect } from "react";
+import { useParams, useHistory } from 'react-router-dom';
+import axios from "axios";
 
-class CharacterDisplay extends Component {
-    state = {character: {}}
+const CharacterDisplay = (props) => {
+  const [character, setCharacter] = useState({});
+  const { id } = useParams();
+  const history = useHistory();
 
-    componentDidMount() {
-        this.fetchCharacter();
+  useEffect(() => {
+    fetchCharacter();
+  }, [id]);
+
+  const fetchCharacter = async () => {
+    try {
+      const res = await axios.get(
+        `https://rickandmortyapi.com/api/character/${id}`
+      );
+      setCharacter(res.data);
+    } catch (err) {
+      console.log(err);
+      setCharacter({});
     }
+  };
 
-    fetchCharacter = async () => {
-        try {
-            const { id } = this.props.match.params;
-            const res = await axios.get(
-              `https://rickandmortyapi.com/api/character/${id}`
-            );
-            this.setState({character: res.data})
-        } catch (err) {
-            console.log(err);
-            this.setState({character: {}})
+  const goBack = () => {
+    history.goBack();
+  };
 
-        }
-    }
+  const goToUser2 = () => {
+      history.push("/characters/2")
+  }
 
-    goBack = () => {
-        this.props.history.goBack();
-    }
+  const seeDogs = () => {
+    history.push("/dogs");
+  };
 
-    seeDogs = () => {
-        this.props.history.push("/dogs")
-    }
-
-    render() {
-        const { character } = this.state; 
-        const { name, image} = character; 
-        return(
-            <section>
-                <button onClick={this.goBack}>Back Button</button>
-                <button onClick={this.seeDogs}>See dogs</button>
-                <h1>Display Single Character</h1>
-                Name: { name }
-                <img src={image} alt="character pic" />
-            </section>
-        )
-    }
-}
+  const { name, image } = character;
+  return (
+    <section>
+      {props.myName}
+      <button onClick={goBack}>Back Button</button>
+      <button onClick={seeDogs}>See dogs</button>
+      <button onClick={goToUser2}>See User 2</button>
+      <h1>Display Single Character</h1>
+      Name: {name}
+      <img src={image} alt="character pic" />
+    </section>
+  );
+};
 
 export default CharacterDisplay;

@@ -28,15 +28,41 @@ class App extends React.Component {
       <div className="App">
         <NavBar />
         <Switch>
-          <Route path={"/person/:name"} component={Person} />
-          <Route path={"/characters/:id"} component={CharacterDisplay} />
-          <Route path={"/characters"} component={Characters} />
-          <Route path={"/counter"} component={CounterAndResize}/>
-          <Route path={"/clock"} component={Clock} />
-          <Route path={"/dogs"} component={DogAppTwo} />
-          <Route path={"/singledog"} component={DogApp} />
-          <Route exact path={"/"} component={Home} />
-          <Route path={"/*"} component={FourOFour} />
+          <Route path={"/person/:name"}>
+            <Person />
+          </Route>
+
+          <Route path={"/characters/:id"}>
+            <CharacterDisplay myName="Corey" />
+          </Route>
+
+          <Route path={"/characters"}>
+            <Characters />
+          </Route>
+
+          <Route path={"/counter"}>
+            <CounterAndResize />
+          </Route>
+
+          <Route path={"/clock"}>
+            <Clock />
+          </Route>
+
+          <Route path={"/dogs"}>
+            <DogAppTwo />
+          </Route>
+
+          <Route path={"/singledog"}>
+            <DogApp />
+          </Route>
+
+          <Route exact path={"/"}>
+            <Home />
+          </Route>
+
+          <Route path={"/*"}>
+            <FourOFour />
+          </Route>
         </Switch>
         {/* <DogApp />
         <button onClick={this.toggleClock}>Toggle Clock</button>
@@ -45,5 +71,11 @@ class App extends React.Component {
     );
   }
 }
+
+// const Route = ({path, component}) => {
+//   return(
+//     <component history={"history"} location={"/locationInfo"} />
+//   )
+// }
 
 export default App;

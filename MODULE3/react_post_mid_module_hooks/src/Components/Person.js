@@ -1,7 +1,7 @@
 import React from 'react'
-
-const Person = (props) => {
-    const { name } = props.match.params; 
+import { useParams } from 'react-router-dom';
+const Person = () => {
+    const { name } = useParams(); 
     return(
         <section>
             <h1>Person {name}!</h1>

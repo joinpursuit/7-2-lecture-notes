@@ -3,6 +3,7 @@
 
 import { Component } from "react";
 import axios from 'axios';
+// const DogSelector = ({breed, updateBreed}) => 
 
 class DogSelector extends Component {
     state = { breeds: []}
