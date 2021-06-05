@@ -12,6 +12,10 @@ app.get("/", (request, response) => {
     response.send("I really love express!")
 }) // app.method takes in two arguments. 1st - is the path. 2nd - is a callback that takes request and response 
 
+app.get("/terminator", (req, res) => {
+    res.send("We are twins!")
+})
+
 app.get("/movies", (req, res) => {
     // console.log(req)
     res.json([
@@ -462,5 +466,41 @@ app.get("/movies", (req, res) => {
       },
     ]);
 })
+
+app.get("/html", (req, res) => {
+    res.send(`<!DOCTYPE html>
+<html>
+<head>
+<style>
+.city {
+  background-color: tomato;
+  color: white;
+  border: 2px solid black;
+  margin: 20px;
+  padding: 20px;
+}
+</style>
+</head>
+<body>
+
+<div class="city">
+  <h2>London</h2>
+  <p>London is the capital of England.</p>
+</div>
+
+<div class="city">
+  <h2>Paris</h2>
+  <p>Paris is the capital of France.</p>
+</div>
+
+<div class="city">
+  <h2>Tokyo</h2>
+  <p>Tokyo is the capital of Japan.</p>
+</div>
+
+</body>
+</html>`);
+})
+
 
 app.listen(PORT, () => { console.log("Listening on PORT: ", PORT)});
