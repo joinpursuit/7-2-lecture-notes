@@ -6,6 +6,7 @@ bookmarks.get("/", (req, res) => {
   // const search = req.query.search;
   // console.log(req.query);
   // console.log(search);
+  console.log('IN THE GET /BOOKMARKS --- INDEX ROUTE');
   res.json(bookmarksArray);
 });
 
