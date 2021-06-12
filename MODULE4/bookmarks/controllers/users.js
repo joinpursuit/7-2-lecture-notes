@@ -17,8 +17,8 @@ users.get("/", (req, res) => {
   res.json(filtered || usersArray);
 });
 
-"http://localhost:3001     /users     ?apples=Tim&bananas=somethingElse&car=bmw"
-"http://localhost:3001     /users     ?bananas=Tim"
+// "http://localhost:3001     /users     ?apples=Tim&bananas=somethingElse&car=bmw"
+// "http://localhost:3001     /users     ?bananas=Tim"
 
 
 

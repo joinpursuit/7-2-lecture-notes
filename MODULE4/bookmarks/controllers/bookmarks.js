@@ -3,7 +3,7 @@ const bookmarksArray = require("../models/bookmark");
 
 // /bookmarks/
 bookmarks.get("/", (req, res) => {
-  // const search = req.query.search; 
+  // const search = req.query.search;
   // console.log(req.query);
   // console.log(search);
   res.json(bookmarksArray);
@@ -14,21 +14,39 @@ bookmarks.get("/", (req, res) => {
 // GET /bookmarks/banana ----- arrayId=25
 
 bookmarks.get("/:arrayIdx", (req, res) => {
-  console.log(req.params);
-  const bookmark = bookmarksArray[req.params.arrayIdx];
+  // console.log(req.params);
+  const { arrayIdx } = req.params;
+  const bookmark = bookmarksArray[arrayIdx];
   if (bookmark) {
     res.json(bookmark);
   } else {
-    res.redirect('/404');
+    res.redirect("/404");
   }
 });
 
+// POST = /bookmarks
 bookmarks.post("/", (req, res) => {
-  bookmarksArray.push(req.body);
+  const { body } = req;
+  bookmarksArray.push(body);
   const newIdx = bookmarksArray.length - 1;
   // res.redirect("/");
-  // res.json(bookmarksArray[bookmarksArray.length - 1]);
+  res.json(bookmarksArray[newIdx]);
   // res.json(bookmarksArray);
 });
 
-module.exports = bookmarks; 
+// PUT - update action - /bookmarks/:id - put has a body
+bookmarks.put("/:arrayIdx", (req, res) => {
+  const { arrayIdx } = req.params;
+  const { body } = req;
+  bookmarksArray[arrayIdx] = body;
+  res.json(bookmarksArray[arrayIdx]);
+}); 
+
+// DELETE - destroy action - /bookmarks/:id
+bookmarks.delete("/:arrayIdx", (req, res) => {
+  const { arrayIdx } = req.params; 
+  const deletedBookmark = bookmarksArray.splice(arrayIdx, 1);
+  res.json(deletedBookmark[0]);
+})
+
+module.exports = bookmarks;
