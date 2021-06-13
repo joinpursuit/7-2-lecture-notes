@@ -21,13 +21,48 @@ const API = apiURL();
 function App() {
   const [bookmarks, setBookmarks] = useState([]);
 
-  const addBookmark = (newBookmark) => {};
-  const deleteBookmark = (index) => {};
-  const updateBookmark = (updatedBookmark, index) => {};
+  const addBookmark = async (newBookmark) => {
+    let res;
+    try {
+      // make our request
+      // axios.post takes the first argument url, then body.
+      res = await axios.post(`${API}/bookmarks`, newBookmark);
+      setBookmarks(prevBookmarks => [...prevBookmarks, res.data]);
+
+      // other way of doing it, potentially error prone when multiple 
+      // setStates are happening 
+      // setBookmarks([...bookmarks, res.data]);
+    } catch (err) {
+      console.log(err);
+    }
+  };
+
+  const deleteBookmark = async (index) => {
+    try {
+      await axios.delete(`${API}/bookmarks/${index}`);
+      const dummyState = [...bookmarks];
+      dummyState.splice(index, 1);
+      setBookmarks(dummyState);
+    } catch (err) {
+      console.log(err);
+    }
+  };
+
+  const updateBookmark = async (updatedBookmark, index) => {
+    try {
+      await axios.put(`${API}/bookmarks/${index}`, updatedBookmark);
+      const newBookmarks = [...bookmarks];
+      newBookmarks[index] = updatedBookmark;
+      setBookmarks(newBookmarks);
+    } catch (err) {
+      console.log(err);
+    }
+  };
 
   const fetchBookmarks = async () => {
     let res;
     try {
+      // GET - localhost:3003/bookmarks
       res = await axios.get(`${API}/bookmarks`);
       setBookmarks(res.data);
     } catch(err) {
@@ -60,10 +95,10 @@ function App() {
               <New addBookmark={addBookmark} />
             </Route>
             <Route exact path="/bookmarks/:index">
-              <Show bookmarks={bookmarks} deleteBookmark={deleteBookmark} />
+              <Show deleteBookmark={deleteBookmark} />
             </Route>
             <Route path="/bookmarks/:index/edit">
-              <Edit bookmarks={bookmarks} updateBookmark={updateBookmark} />
+              <Edit updateBookmark={updateBookmark} />
             </Route>
             <Route path="*">
               <FourOFour />

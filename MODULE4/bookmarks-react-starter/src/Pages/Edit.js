@@ -1,10 +1,10 @@
 import BookmarkEditForm from "../Components/BookmarkEditForm";
 
-function Edit({ updateBookmark, bookmarks }) {
+function Edit({ updateBookmark }) {
   return (
     <div className="New Edit">
       <h2>Edit</h2>
-      <BookmarkEditForm updateBookmark={updateBookmark} bookmarks={bookmarks} />
+      <BookmarkEditForm updateBookmark={updateBookmark} />
     </div>
   );
 }

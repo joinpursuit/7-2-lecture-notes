@@ -1,14 +1,33 @@
+import axios from "axios";
 import { useState, useEffect } from "react";
 import { Link, useParams, useHistory, withRouter } from "react-router-dom";
 
-function BookmarkDetails(props) {
-  const { deleteBookmark } = props;
-  const [bookmark, setBookmark] = useState([]);
+import { apiURL } from '../util/apiURL';
+const API = apiURL();
+
+function BookmarkDetails({ deleteBookmark }) {
+  const [bookmark, setBookmark] = useState({});
   let { index } = useParams();
   let history = useHistory();
 
-  useEffect(() => {}, []);
-  const handleDelete = () => {};
+  const fetchBookmark = async () => {
+    try {
+      const res = await axios.get(`${API}/bookmarks/${index}`);
+      setBookmark(res.data);
+    } catch (err) {
+      console.log(err);
+    }
+  };
+  
+  useEffect(() => {
+    fetchBookmark();
+  }, []);
+
+  const handleDelete = () => {
+    deleteBookmark(index);
+    history.push('/bookmarks');
+  };
+
   return (
     <article>
       <h3>

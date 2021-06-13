@@ -1,5 +1,9 @@
+import axios from "axios";
 import { useState, useEffect } from "react";
 import { useParams, Link, useHistory } from "react-router-dom";
+
+import { apiURL } from '../util/apiURL';
+const API = apiURL();
 
 function BookmarkEditForm(props) {
   let { index } = useParams();
@@ -21,13 +25,25 @@ function BookmarkEditForm(props) {
     setBookmark({ ...bookmark, isFavorite: !bookmark.isFavorite });
   };
 
-  useEffect(() => {}, []);
+  const fetchBookmark = async () => {
+    try {
+      const res = await axios.get(`${API}/bookmarks/${index}`);
+      setBookmark(res.data);
+    } catch (err) {
+      console.log(err);
+    }
+  }
 
-  const handleSubmit = (event) => {
+  useEffect(() => {
+    fetchBookmark();
+  }, []);
+
+  const handleSubmit = async (event) => {
     event.preventDefault();
-    props.updateBookmark(bookmark, index);
+    await props.updateBookmark(bookmark, index);
     history.push(`/bookmarks/${index}`);
   };
+
   return (
     <div className="Edit">
       <form onSubmit={handleSubmit}>

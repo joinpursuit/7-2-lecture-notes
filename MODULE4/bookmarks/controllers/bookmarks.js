@@ -1,7 +1,7 @@
 const bookmarks = require("express").Router();
 const bookmarksArray = require("../models/bookmark");
 
-// /bookmarks/
+// localhost:3003/bookmarks
 bookmarks.get("/", (req, res) => {
   res.json(bookmarksArray);
 });
@@ -9,9 +9,13 @@ bookmarks.get("/", (req, res) => {
 // 'http://localhost:3001      /bookmarks    ?arrayId=25'
 // GET /bookmarks ----- arrayId=25
 // GET /bookmarks/banana ----- arrayId=25
+
+// 'http://localhost:3001      /bookmarks/banana    ?arrayId=25'
+
 bookmarks.get("/:arrayIdx", (req, res) => {
   const { arrayIdx } = req.params;
   const bookmark = bookmarksArray[arrayIdx];
+  // bookmark and all its details...
   if (bookmark) {
     res.json(bookmark);
   } else {
@@ -28,6 +32,7 @@ bookmarks.post("/", (req, res) => {
 });
 
 // PUT - update action - /bookmarks/:id - put has a body
+// /bookmarks/idx
 bookmarks.put("/:arrayIdx", (req, res) => {
   const { arrayIdx } = req.params;
   const { body } = req;
