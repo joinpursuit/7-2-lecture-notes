@@ -4,9 +4,6 @@ const usersController = require("./controllers/users");
 const cors = require('cors');
 
 const app = express();
-
-// const appJson = express.json();
-// console.log(appJson.toString());
 app.use(express.json()); // this line is adding 'body' key to the req object
 app.use(cors());
 

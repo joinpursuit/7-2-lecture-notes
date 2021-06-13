@@ -29,7 +29,6 @@ function App() {
     let res;
     try {
       res = await axios.get(`${API}/bookmarks`);
-      debugger // 5
       setBookmarks(res.data);
     } catch(err) {
       console.log(err);
@@ -44,7 +43,6 @@ function App() {
     // otherwise we shouldn't return anything
     // return () => {};
   }, []);
-  debugger // 1, 6
 
   return (
     <div className="App">

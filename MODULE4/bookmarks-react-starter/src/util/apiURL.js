@@ -1,9 +1,6 @@
 export const apiURL = () => {
-    // development // production // test
-
-    // if (window.location.hostname === 'localhost') {
-    // } 
-    if (
+    // if (window.location.hostname === 'localhost')
+    if ( //THESE ARE THE THREE OPTIONS :: development  production  test
         process.env.NODE_ENV === 'development' ||
         process.env.NODE_ENV === 'test'
     ) {
@@ -11,8 +8,3 @@ export const apiURL = () => {
     }  
     return null;
 }
-
-// google.com
-// //localhost:3002
-
-// `${window.location.hostname}/bookmarks`

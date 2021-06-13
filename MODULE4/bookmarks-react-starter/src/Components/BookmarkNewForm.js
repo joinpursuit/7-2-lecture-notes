@@ -23,6 +23,7 @@ function BookmarkNewForm(props) {
     props.addBookmark(bookmark);
     props.history.push("/bookmarks");
   };
+
   return (
     <div className="New">
       <form onSubmit={handleSubmit}>
