@@ -61,6 +61,7 @@ function App() {
 
   const fetchBookmarks = async () => {
     let res;
+    debugger;
     try {
       // GET - localhost:3003/bookmarks
       res = await axios.get(`${API}/bookmarks`);
