@@ -38,6 +38,10 @@ VALUES
     ('99 Sunnyside Drive', TRUE, 100, 'NY', 'Springfield', true);
 
 -- try your first SELECT query 
+SELECT 
+    *
+FROM 
+    houses;
 
 -- adding minimum data 
 INSERT INTO
@@ -47,7 +51,7 @@ VALUES
 
 -- adding real data 
 INSERT INTO
-    houses (address, city, st, price, pool, for_sale)
+    houses (address, city, state, price, pool, for_sale)
 VALUES
     ('2 Maple Court', 'Monroe', 'NY', 200, false, true),
     ('50 Beech Street', 'Bacon', 'IN', 75, null , null),
@@ -59,19 +63,124 @@ VALUES
 
 
 -- lets play with our data 
--- select all rows from the houses table.  display only the address column
--- select all rows from the houses table.  display only the address and state column
--- select all rows from the houses table.  display only the all columns
--- select all rows from the houses table where the name column is set to 'Monroe'
--- select all rows from the houses table where the name column is set to 'ny' or 'Ny' or 'NY' (case insensitive)
--- select all rows from the houses table where the name column contains 'Drive'
--- select all rows from the houses table where the city column is set to 'Monroe' AND the state column is set to 'CT'
--- select all rows from the houses table where either the pool column is set to TRUE OR the city column is set to 'Twin Peaks'
--- select all rows from the houses table where the price is set to 200
--- select all rows from the houses table where the price column is not set to 180
--- select all rows from the houses table where the price column is greater than 165
--- select all rows from the houses table where the price column is less than 165
--- select all rows from the houses table where the price column is greater than or equal to 165
--- select all rows from the houses table where the price column is less than or equal to 165
--- select all rows from the houses table where the price column is null
--- select all rows from the houses table where the pool column has a value
+-- display only the address column
+SELECT
+    address 
+FROM 
+    houses;
+-- display only the address and state column
+SELECT
+    address, state 
+FROM 
+    houses;
+-- display all the columns
+SELECT
+    *
+FROM 
+    houses;
+
+-- select all rows from the houses table where the city column is set to 'Monroe'
+SELECT 
+    address, pool 
+FROM 
+    houses
+WHERE 
+    city = 'Monroe';
+
+-- select all rows from the houses table where:
+
+-- the state column is set to 'ny' or 'Ny' or 'NY' (case insensitive)
+SELECT 
+    * 
+FROM 
+    houses 
+WHERE 
+    state ILIKE 'ny';
+
+-- the address column contains 'Drive'
+SELECT 
+    * 
+FROM 
+    houses
+WHERE 
+    address ILIKE '%Drive%';
+
+-- the city column is set to 'Monroe' AND the state column is set to 'CT'
+SELECT 
+    *
+FROM 
+    houses 
+WHERE 
+    city = 'Monroe' AND state = 'CT';
+
+-- either the pool column is set to TRUE OR the city column is set to 'Twin Peaks'
+SELECT 
+    * 
+FROM 
+    houses 
+WHERE 
+    pool = true OR city = 'Twin Peaks';
+
+-- the price is set to 200
+SELECT 
+    * 
+FROM 
+    houses 
+WHERE 
+    price = 200;
+
+-- the price column is not set to 180
+SELECT 
+    * 
+FROM 
+    houses 
+WHERE 
+    price != 180;
+
+-- the price column is greater than 165
+SELECT 
+    * 
+FROM 
+    houses 
+WHERE 
+    price > 165;
+
+-- the price column is less than 165
+SELECT 
+    * 
+FROM 
+    houses 
+WHERE 
+    price < 165;
+    
+-- the price column is greater than or equal to 165
+SELECT 
+    * 
+FROM 
+    houses 
+WHERE 
+    price >= 165;
+
+-- the price column is less than or equal to 165
+SELECT 
+    * 
+FROM 
+    houses 
+WHERE 
+    price <= 165;
+
+-- the price column is null
+SELECT 
+    * 
+FROM 
+    houses 
+WHERE 
+    price IS NULL;
+
+-- the pool column has a value
+SELECT 
+    * 
+FROM 
+    houses 
+WHERE 
+    pool IS NOT NULL;
