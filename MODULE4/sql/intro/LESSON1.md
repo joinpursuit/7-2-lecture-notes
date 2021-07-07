@@ -8,9 +8,7 @@
     - database 
     - tables 
     - columns 
-4. Lets Play! 
+4. Lets Play With the Data!
     - inserting
-    - querying 
-    - updating 
-    - deleting
+    - querying
 
