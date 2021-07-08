@@ -1,6 +1,7 @@
 // DEPENDENCIES
 const cors = require("cors");
 const express = require("express");
+const bookmarksController = require("./controllers/bookmarks");
 
 // CONFIGURATION
 const app = express();
@@ -13,6 +14,9 @@ app.use(express.json());
 app.get("/", (req, res) => {
 	res.send("Welcome to Bookmarks App");
 });
+
+//BOOKMARKS ROUTE
+app.use("/bookmarks", bookmarksController);
 
 // 404 PAGE
 app.get("*", (req, res) => {
