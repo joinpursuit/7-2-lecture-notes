@@ -1,0 +1,13 @@
+-- select all movies, thn actors, then castings.
+-- see some joinings 
+
+-- count how many actors for part of the 'Avengers' cast 
+-- find the lead actor for 'Iron Man'
+-- find which movie has a single actor
+-- count how many movies don't have lead actors
+-- list the names of the supporting actors for 'Thor'
+-- count how many movies were made in 1999
+-- count how many movies were made in 1997
+-- create a query to return the years that have more than one movie 
+-- select the movie with the largest cast 
+-- find the actor that appears in the most movies 
