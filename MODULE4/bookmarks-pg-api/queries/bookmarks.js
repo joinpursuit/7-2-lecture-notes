@@ -1,3 +1,4 @@
+const bookmarks = require("../controllers/bookmarks.js");
 const db = require("../db/config.js");
 console.log(db.any.toString());
 
@@ -11,11 +12,29 @@ const getAllBookmarks = async () => {
     }
 }
 
-// const createBookmark = async (newBookmark) => {
-//     try {
-//         const theBookmark = await db.oneOrNone("INSERT INTO...")
-//     }
-// };
+const getBookmark = async (id) => {
+    try {
+				// sanitize query by passing SECOND argument to db.one()
+				const bookmark = await db.one(`SELECT * FROM bookmarks WHERE id = $1`, id)
+				// const bookmark = await db.one(`SELECT * FROM bookmarks WHERE id = $[id]`, {id:id})
+				return bookmark
+    } catch (error) {
+        console.log(error)
+    }
+};
+// \
+const createBookmark = async (newBookmark) => {
+	const { name, url, category, is_favorite } = newBookmark 
+    try {
+        const theBookmark = await db.one(
+					"INSERT INTO bookmarks(name, url, category, is_favorite) VALUES($1, $2, $3, $4) RETURNING *",
+					 [name, url, category, is_favorite]
+				)
+				return theBookmark
+    } catch (error) {
+			console.log(error)
+		}
+};
 
-// module.exports = { getAllBookmarks: getAllBookmarks };
-module.exports = { getAllBookmarks };
+// module.exports = { getAllBookmarks: getAllBookmarks, getBookmark: getBookmark };
+module.exports = { getAllBookmarks, getBookmark, createBookmark };
