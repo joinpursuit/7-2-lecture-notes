@@ -21,6 +21,6 @@ CREATE TABLE castings(
     id SERIAL PRIMARY KEY, 
     actor_id INT REFERENCES actors (id), 
     movie_id INT REFERENCES movies (id), 
-    lead_actor_id INT REFERENCES actors (id)
+    is_lead BOOLEAN
 );
     

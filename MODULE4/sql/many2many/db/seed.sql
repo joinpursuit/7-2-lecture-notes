@@ -22,7 +22,7 @@ VALUES
     ('Robert Downy Jr'),
     ('Mark Ruffalo'),
     ('Sam L Jackson'),
-    ('Scarlett Johnasson'),
+    ('Scarlett Johansson'),
     ('Chris Evans'),
     ('Chris Hemsworth'),
     ('Anthony Mackie'),
@@ -63,279 +63,280 @@ VALUES
 
 -- seed castings 
 INSERT INTO 
-    castings(actor_id, movie_id, lead_actor_id)
+    castings(actor_id, movie_id, is_lead)
 VALUES
+    -- Avengers
     (
         (SELECT id FROM actors WHERE name = 'Robert Downy Jr'),
         (SELECT id FROM movies WHERE title = 'Avengers'),
-        null
+        FALSE
     ),
     (
         (SELECT id FROM actors WHERE name = 'Mark Ruffalo'),
         (SELECT id FROM movies WHERE title = 'Avengers'),
-        null
+        FALSE
     ),
     (
         (SELECT id FROM actors WHERE name = 'Sam L Jackson'),
         (SELECT id FROM movies WHERE title = 'Avengers'),
-        null
+        FALSE
     ),
     (
-        (SELECT id FROM actors WHERE name = 'Scarlett Johnasson'),
+        (SELECT id FROM actors WHERE name = 'Scarlett Johansson'),
         (SELECT id FROM movies WHERE title = 'Avengers'),
-        null
+        FALSE
     ),
     (
         (SELECT id FROM actors WHERE name = 'Chris Evans'),
         (SELECT id FROM movies WHERE title = 'Avengers'),
-        null
+        FALSE
     ),
     (
         (SELECT id FROM actors WHERE name = 'Chris Hemsworth'),
         (SELECT id FROM movies WHERE title = 'Avengers'),
-        null
+        FALSE
     ),
     (
         (SELECT id FROM actors WHERE name = 'Anthony Mackie'),
         (SELECT id FROM movies WHERE title = 'Avengers'),
-        null
+        FALSE
     ),
     (
         (SELECT id FROM actors WHERE name = 'Tom Hiddleston'),
         (SELECT id FROM movies WHERE title = 'Avengers'),
-        null
+        FALSE
     ),
     (
         (SELECT id FROM actors WHERE name = 'Tom Holland'),
         (SELECT id FROM movies WHERE title = 'Avengers'),
-        null
+        FALSE
     ),
     -- Iron Man
     (
         (SELECT id FROM actors WHERE name = 'Robert Downy Jr'),
         (SELECT id FROM movies WHERE title = 'Iron Man'),
-        (SELECT id FROM actors WHERE name = 'Robert Downy Jr')
+        TRUE
     ),
     (
         (SELECT id FROM actors WHERE name = 'Jon Favreau'),
         (SELECT id FROM movies WHERE title = 'Iron Man'),
-        null
+        FALSE
     ),
     (
         (SELECT id FROM actors WHERE name = 'Gwyneth Paltrou'),
         (SELECT id FROM movies WHERE title = 'Iron Man'),
-        null
+        FALSE
     ),
     (
         (SELECT id FROM actors WHERE name = 'Sam L Jackson'),
         (SELECT id FROM movies WHERE title = 'Iron Man'),
-        null
+        FALSE
     ),
     (
         (SELECT id FROM actors WHERE name = 'Scarlett Johansson'),
         (SELECT id FROM movies WHERE title = 'Iron Man'),
-        null
+        FALSE
     ),
     -- Captain America 
     (
         (SELECT id FROM actors WHERE name = 'Chris Evans'),
         (SELECT id FROM movies WHERE title = 'Captain America'),
-        (SELECT id FROM actors WHERE name = 'Chris Evans')
+        TRUE
     ),
     (
         (SELECT id FROM actors WHERE name = 'Sebastian Stan'),
         (SELECT id FROM movies WHERE title = 'Captain America'),
-        null
+        FALSE
     ),
     (
         (SELECT id FROM actors WHERE name = 'Scarlett Johansson'),
         (SELECT id FROM movies WHERE title = 'Captain America'),
-        null
+        FALSE
     ),
     (
         (SELECT id FROM actors WHERE name = 'Sam L Jackson'),
         (SELECT id FROM movies WHERE title = 'Captain America'),
-        null
+        FALSE
     ),
     (
         (SELECT id FROM actors WHERE name = 'Elizabeth Olsen'),
         (SELECT id FROM movies WHERE title = 'Captain America'),
-        null
+        FALSE
     ),
     (
         (SELECT id FROM actors WHERE name = 'Frank Grillo'),
         (SELECT id FROM movies WHERE title = 'Captain America'),
-        null
+        FALSE
     ),
     -- Spider Man
     (
         (SELECT id FROM actors WHERE name = 'Tom Holland'),
         (SELECT id FROM movies WHERE title = 'Spider Man'),
-        (SELECT id FROM actors WHERE name = 'Tom Holland')
+        TRUE
     ),
     (
         (SELECT id FROM actors WHERE name = 'Zendaya'),
         (SELECT id FROM movies WHERE title = 'Spider Man'),
-        null
+        FALSE
     ),
     (
         (SELECT id FROM actors WHERE name = 'Jake Gyllenhaal'),
         (SELECT id FROM movies WHERE title = 'Spider Man'),
-        null
+        FALSE
     ),
     (
         (SELECT id FROM actors WHERE name = 'Jacob Batalon'),
         (SELECT id FROM movies WHERE title = 'Spider Man'),
-        null
+        FALSE
     ),
     (
         (SELECT id FROM actors WHERE name = 'Marisa Tomei'),
         (SELECT id FROM movies WHERE title = 'Spider Man'),
-        null
+        FALSE
     ),
     -- Thor
     (
         (SELECT id FROM actors WHERE name = 'Chris Hemsworth'),
         (SELECT id FROM movies WHERE title = 'Thor'),
-        (SELECT id FROM actors WHERE name = 'Chris Hemsworth')
+        TRUE
     ),
     (
         (SELECT id FROM actors WHERE name = 'Natalie Portman'),
         (SELECT id FROM movies WHERE title = 'Thor'),
-        null
+        FALSE
     ),
     (
         (SELECT id FROM actors WHERE name = 'Tom Hiddleston'),
         (SELECT id FROM movies WHERE title = 'Thor'),
-        null
+        FALSE
     ),
     (
         (SELECT id FROM actors WHERE name = 'Jaimie Alexander'),
         (SELECT id FROM movies WHERE title = 'Thor'),
-        null
+        FALSE
     ),
     (
         (SELECT id FROM actors WHERE name = 'Anthony Hopkins'),
         (SELECT id FROM movies WHERE title = 'Thor'),
-        null
+        FALSE
     ),
     (
         (SELECT id FROM actors WHERE name = 'Idris Elba'),
         (SELECT id FROM movies WHERE title = 'Thor'),
-        null
+        FALSE
     ),
     -- Sixth Sense
     (
         (SELECT id FROM actors WHERE name = 'Halay Osment'),
         (SELECT id FROM movies WHERE title = 'Sixth Sense'),
-        null
+        FALSE
     ),
     (
         (SELECT id FROM actors WHERE name = 'Bruce Willis'),
         (SELECT id FROM movies WHERE title = 'Sixth Sense'),
-        null
+        FALSE
     ),
     (
         (SELECT id FROM actors WHERE name = 'Toni Collette'),
         (SELECT id FROM movies WHERE title = 'Sixth Sense'),
-        null
+        FALSE
     ),
     (
         (SELECT id FROM actors WHERE name = 'Donnie Wahlberg'),
         (SELECT id FROM movies WHERE title = 'Sixth Sense'),
-        null
+        FALSE
     ),
     (
         (SELECT id FROM actors WHERE name = 'Olivia Williams'),
         (SELECT id FROM movies WHERE title = 'Sixth Sense'),
-        null
+        FALSE
     ),
     -- The Fifth Element
     (
         (SELECT id FROM actors WHERE name = 'Milla Jovovich'),
         (SELECT id FROM movies WHERE title = 'The Fifth Element'),
-        null
+        FALSE
     ),
     (
         (SELECT id FROM actors WHERE name = 'Bruce Willis'),
         (SELECT id FROM movies WHERE title = 'The Fifth Element'),
-        null
+        FALSE
     ),
     (
         (SELECT id FROM actors WHERE name = 'Gary Oldman'),
         (SELECT id FROM movies WHERE title = 'The Fifth Element'),
-        null
+        FALSE
     ),
     (
         (SELECT id FROM actors WHERE name = 'Chris Tucker'),
         (SELECT id FROM movies WHERE title = 'The Fifth Element'),
-        null
+        FALSE
     ),
     -- Twelve Monkeys
     (
         (SELECT id FROM actors WHERE name = 'Brad Pitt'),
         (SELECT id FROM movies WHERE title = 'Twelve Monkeys'),
-        (SELECT id FROM actors WHERE name = 'Brad Pitt')
+        TRUE
     ),
     (
         (SELECT id FROM actors WHERE name = 'Madeleine Stowe'),
         (SELECT id FROM movies WHERE title = 'Twelve Monkeys'),
-        null
+        FALSE
     ),
     (
         (SELECT id FROM actors WHERE name = 'Bruce Willis'),
         (SELECT id FROM movies WHERE title = 'Twelve Monkeys'),
-        null
+        FALSE
     ),
     (
         (SELECT id FROM actors WHERE name = 'Christopher Plummer'),
         (SELECT id FROM movies WHERE title = 'Twelve Monkeys'),
-        null
+        FALSE
     ),
     (
         (SELECT id FROM actors WHERE name = 'Jon Seda'),
         (SELECT id FROM movies WHERE title = 'Twelve Monkeys'),
-        null
+        FALSE
     ),
     (
         (SELECT id FROM actors WHERE name = 'David Morse'),
         (SELECT id FROM movies WHERE title = 'Twelve Monkeys'),
-        null
+        FALSE
     ),
     -- Fight Club
     (
         (SELECT id FROM actors WHERE name = 'Brad Pitt'),
         (SELECT id FROM movies WHERE title = 'Fight Club'),
-        null
+        FALSE
     ),
     (
         (SELECT id FROM actors WHERE name = 'Edward Norton'),
         (SELECT id FROM movies WHERE title = 'Fight Club'),
-        null
+        FALSE
     ),
     (
         (SELECT id FROM actors WHERE name = 'Helena Carter'),
         (SELECT id FROM movies WHERE title = 'Fight Club'),
-        null
+        FALSE
     ),
     (
         (SELECT id FROM actors WHERE name = 'Jared Leto'),
         (SELECT id FROM movies WHERE title = 'Fight Club'),
-        null
+        FALSE
     ),
     (
         (SELECT id FROM actors WHERE name = 'Meat Loaf'),
         (SELECT id FROM movies WHERE title = 'Fight Club'),
-        null
+        FALSE
     ),
     (
         (SELECT id FROM actors WHERE name = 'Holt McCallany'),
         (SELECT id FROM movies WHERE title = 'Fight Club'),
-        null
+        FALSE
     ),
     -- Titanic
     (
         (SELECT id FROM actors WHERE name = 'Leo Di Caprio'),
         (SELECT id FROM movies WHERE title = 'Titanic'),
-        (SELECT id FROM actors WHERE name = 'Leo Di Caprio')
+        TRUE
     );
