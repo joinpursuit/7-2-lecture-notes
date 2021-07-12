@@ -1,7 +1,4 @@
-const bookmarks = require("../controllers/bookmarks.js");
 const db = require("../db/config.js");
-console.log(db.any.toString());
-
 
 const getAllBookmarks = async () => {
     try {

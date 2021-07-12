@@ -15,9 +15,7 @@ bookmarks.get("/", async (req, res) => {
 
 bookmarks.post("/", async (req, res) => {
     const newBookmark = req.body;
-    // { name:string, url:string, is_favorite:boolean, category:string}
     const result = await createBookmark(newBookmark);
-    console.log(result);
     res.json(result);
 })
 
