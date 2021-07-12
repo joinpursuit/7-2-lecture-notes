@@ -36,5 +36,19 @@ const createBookmark = async (newBookmark) => {
 		}
 };
 
+const deleteBookmark = async () =>{
+	try{} 
+	catch (err) {
+		return err
+	}
+}
+
+const updateBookmark = async () =>{
+	try{} 
+	catch (err) {
+		return err
+	}
+}
+
 // module.exports = { getAllBookmarks: getAllBookmarks, getBookmark: getBookmark };
-module.exports = { getAllBookmarks, getBookmark, createBookmark };
+module.exports = { getAllBookmarks, getBookmark, createBookmark, updateBookmark, deleteBookmark}

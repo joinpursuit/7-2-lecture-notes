@@ -3,7 +3,9 @@ const bookmarks = express.Router();
 const { 
     getAllBookmarks, 
     getBookmark, 
-    createBookmark 
+    createBookmark,
+    updateBookmark,
+    deleteBookmark
 } = require("../queries/bookmarks");
 
 
@@ -26,5 +28,14 @@ bookmarks.get("/:id", async (req, res) => {
     const bookmark = await getBookmark(id);
     res.json(bookmark);
 })
+
+bookmarks.put('', async (req, res) => {
+  
+})
+
+bookmarks.delete('/', async (req, res) => {
+ 
+})
+
 
 module.exports = bookmarks;
