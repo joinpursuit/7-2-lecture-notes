@@ -7,16 +7,15 @@ const API = apiURL();
 function BookmarkNewForm() {
   let history = useHistory();
 
-  const addBookmark = (newBookmark) => {
-    axios
-      .post(`${API}/bookmarks`, newBookmark)
-      .then(
-        () => {
-          history.push(`/bookmarks`);
-        },
-        (error) => console.error(error)
-      )
-      .catch((c) => console.warn("catch", c));
+  const addBookmark = async (newBookmark) => {
+    console.log('ABOUT TO SEND THE REQUEST');
+    try {
+      await axios.post(`${API}/bookmarks`, newBookmark);
+      console.log('SUCCESS, SENDING YOU TO INDEX PAGE')
+      history.push(`/bookmarks`);
+    } catch (err) {
+      console.log(err);
+    }
   };
 
   const [bookmark, setBookmark] = useState({

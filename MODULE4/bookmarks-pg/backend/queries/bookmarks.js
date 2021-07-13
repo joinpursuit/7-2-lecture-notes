@@ -11,10 +11,10 @@ const getAllBookmarks = async () => {
 
 const getBookmark = async (id) => {
     try {
-				// sanitize query by passing SECOND argument to db.one()
-				const bookmark = await db.one(`SELECT * FROM bookmarks WHERE id = $1`, id)
-				// const bookmark = await db.one(`SELECT * FROM bookmarks WHERE id = $[id]`, {id:id})
-				return bookmark
+		// sanitize query by passing SECOND argument to db.one()
+		const bookmark = await db.one(`SELECT * FROM bookmarks WHERE id = $1`, id)
+		// const bookmark = await db.one(`SELECT * FROM bookmarks WHERE id = $[id]`, {id:id})
+		return bookmark
     } catch (error) {
         console.log(error)
     }
@@ -23,14 +23,15 @@ const getBookmark = async (id) => {
 const createBookmark = async (newBookmark) => {
 	const { name, url, category, is_favorite } = newBookmark 
     try {
+		console.log('INSERTING INTO THE DATABASE!')
         const theBookmark = await db.one(
-					"INSERT INTO bookmarks(name, url, category, is_favorite) VALUES($1, $2, $3, $4) RETURNING *",
-					 [name, url, category, is_favorite]
-				)
-				return theBookmark
+			"INSERT INTO bookmarks(name, url, category, is_favorite) VALUES($1, $2, $3, $4) RETURNING *",
+			[name, url, category, is_favorite]
+		);
+		return theBookmark
     } catch (error) {
-			console.log(error)
-		}
+		console.log(error)
+	}
 };
 
 const deleteBookmark = async (id) => {

@@ -14,9 +14,6 @@ import Show from "./Pages/Show";
 import NavBar from "./Components/NavBar";
 
 function App() {
-  const [bookmarks, setBookmarks] = useState([]);
-  
-
   return (
     <div className="App">
       <Router>

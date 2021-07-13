@@ -7,10 +7,9 @@ const API = apiURL();
 
 function BookmarksList() {
   const [bookmarks, setBookmarks] = useState([]);
-
+  
   useEffect(async () => {
     // fetch all the bookmarks 
-    // ensure those are in state 
   }, []);
   
   return (

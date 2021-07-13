@@ -15,16 +15,13 @@ function BookmarkEditForm() {
     is_favorite: false,
   });
 
-  const updateBookmark = (updatedBookmark) => {
-    axios
-      .put(`${API}/bookmarks/${id}`, updatedBookmark)
-      .then(
-        () => {
-          history.push(`/bookmarks/${id}`);
-        },
-        (error) => console.error(error)
-      )
-      .catch((c) => console.warn("catch", c));
+  const updateBookmark = async (updatedBookmark) => {
+    try {
+      await axios.put(`${API}/bookmarks/${id}`, updatedBookmark);
+      history.push(`/bookmarks/${id}`);
+    } catch (e) {
+      console.log(e);
+    }
   };
 
   const handleTextChange = (event) => {
@@ -46,6 +43,7 @@ function BookmarkEditForm() {
     event.preventDefault();
     updateBookmark(bookmark, id);
   };
+
   return (
     <div className="Edit">
       <form onSubmit={handleSubmit}>

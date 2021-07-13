@@ -17,6 +17,7 @@ bookmarks.get("/", async (req, res) => {
 
 bookmarks.post("/", async (req, res) => {
     const newBookmark = req.body;
+    console.log('IN THE CONTROLLER, ABOUT TO CALL THE QUERY FUNC')
     const result = await createBookmark(newBookmark);
     res.json(result);
 });
@@ -30,8 +31,6 @@ bookmarks.get("/:id", async (req, res) => {
 bookmarks.put('/:id', async (req, res) => {
     const { body, params } = req;
     const { name, category, url } = body;
-    // do we have a bookmark with that id? 
-    // 
 
     if (!name || !category || !url) {
         res.status(422).json({ 
