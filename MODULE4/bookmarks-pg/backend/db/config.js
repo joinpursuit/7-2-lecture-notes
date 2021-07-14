@@ -1,5 +1,6 @@
 const pgp = require("pg-promise")();
 require("dotenv").config();
+
 const connectionObject = {
     host: process.env.PG_HOST,
     port: process.env.PG_PORT,

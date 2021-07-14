@@ -9,7 +9,13 @@ function BookmarksList() {
   const [bookmarks, setBookmarks] = useState([]);
   
   useEffect(async () => {
-    // fetch all the bookmarks 
+    try {
+      const res = await axios.get(`${API}/bookmarks`);
+      // res.data = { success: true, payload: bookmarks }
+      setBookmarks(res.data.payload);
+    } catch (err) {
+      console.log(err);
+    }
   }, []);
   
   return (

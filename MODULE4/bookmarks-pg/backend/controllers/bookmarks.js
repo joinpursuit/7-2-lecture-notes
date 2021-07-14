@@ -12,8 +12,9 @@ const {
 bookmarks.get("/", async (req, res) => {
     const bookmarks = await getAllBookmarks();
     console.log("RESPONSEEEE!!!", bookmarks);
-    res.json({success: true, payload: bookmarks});
-})
+    res.json({ success: true, payload: bookmarks });
+    // res.json(bookmarks);
+});
 
 bookmarks.post("/", async (req, res) => {
     const newBookmark = req.body;
@@ -25,7 +26,8 @@ bookmarks.post("/", async (req, res) => {
 bookmarks.get("/:id", async (req, res) => {
     const { id } = req.params;
     const bookmark = await getBookmark(id);
-    res.json(bookmark);
+    res.json({ success: true, payload: bookmark });
+    // res.json(bookmark);
 });
 
 bookmarks.put('/:id', async (req, res) => {
