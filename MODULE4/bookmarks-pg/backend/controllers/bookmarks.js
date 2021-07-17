@@ -1,4 +1,5 @@
 const express = require("express");
+const reviewsController = require('./reviews')
 const bookmarks = express.Router();
 const { 
     getAllBookmarks, 
@@ -7,7 +8,9 @@ const {
     updateBookmark,
     deleteBookmark
 } = require("../queries/bookmarks");
+// get  bookmarks/1/reviews
 
+bookmarks.use("/:bookmark_id/reviews", reviewsController);
 
 bookmarks.get("/", async (req, res) => {
     const bookmarks = await getAllBookmarks();
