@@ -10,5 +10,4 @@
     - backend: format the response 
     - frontend: recieve response 
     - frontend: update the view
-3. Do the remix (redirect)
-4. Briefly: Discuss CSR vs SSR
+3. Briefly: Discuss CSR vs SSR
