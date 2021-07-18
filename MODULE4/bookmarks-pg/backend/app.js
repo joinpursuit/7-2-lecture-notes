@@ -2,7 +2,6 @@
 const cors = require("cors");
 const express = require("express");
 const bookmarksController = require("./controllers/bookmarks");
-// const reviewsController = require("./controllers/reviews");
 
 // CONFIGURATION
 const app = express();
@@ -28,7 +27,6 @@ app.get("/", (req, res) => {
 
 //BOOKMARKS ROUTE
 app.use("/bookmarks", bookmarksController);
-// app.use("/reviews", reviewsController);
 
 // 404 PAGE
 app.get("*", (req, res) => {

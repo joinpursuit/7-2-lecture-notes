@@ -8,7 +8,6 @@ const {
     updateBookmark,
     deleteBookmark
 } = require("../queries/bookmarks");
-// get  bookmarks/1/reviews
 
 bookmarks.use("/:bookmark_id/reviews", reviewsController);
 

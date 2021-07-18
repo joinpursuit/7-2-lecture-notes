@@ -11,7 +11,6 @@ function BookmarksList() {
   useEffect(() => {
     const getTheBookmarks = () => {
       try {
-        // console.log('About to make a "GET" to:', `${API}/bookmarks`);
         console.log('About to make a "GET" to:', `${API}/bookmarks`);
         setTimeout(async () => { // putting call inside setTimeout to pause execution for a bit, educational purposes only.
           const res = await axios.get(`${API}/bookmarks`);
