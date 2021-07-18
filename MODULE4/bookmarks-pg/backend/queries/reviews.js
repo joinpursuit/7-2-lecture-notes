@@ -1,8 +1,11 @@
 const db = require('../db/config');
 
-const getAllReviews = async () => {
+const getAllReviewsForBookmark = async (bookmarkId) => {
     try {
-        const allReviews = await db.any("SELECT * FROM reviews");
+        const allReviews = await db.any(`
+            SELECT * FROM reviews 
+            WHERE bookmark_id = $1
+        `, bookmarkId);
         return { success: true, payload: allReviews };
     } catch (e) {
         console.log(e);
@@ -20,14 +23,14 @@ const getReview = async (id) => {
     }
 };
 
-const newReview = async (review) => {
-    const { reviewer, title, content, rating, bookmark_id } = review;
+const newReviewForBookmark = async (review, bookmarkId) => {
+    const { reviewer, title, content, rating } = review;
     try {
         const created = await db.one(`
             INSERT INTO reviews (reviewer, title, content, rating, bookmark_id) 
             VALUES ($1, $2, $3, $4, $5)
             RETURNING *
-        `, [reviewer, title, content, rating, bookmark_id]);
+        `, [reviewer, title, content, rating, bookmarkId]);
 
         return { success: true, payload: created };
     } catch (e) {
@@ -66,9 +69,9 @@ const deleteReview = async (id) => {
 };
 
 module.exports = {
-    getAllReviews,
+    getAllReviewsForBookmark,
     getReview,
-    newReview,
+    newReviewForBookmark,
     updateReview,
     deleteReview,
 }

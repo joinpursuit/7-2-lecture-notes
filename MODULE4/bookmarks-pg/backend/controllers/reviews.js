@@ -1,18 +1,19 @@
 const express = require('express');
+// gives access to our nested wildcard params
 const reviews = express.Router({
     mergeParams: true
 });
 
 const { 
-    getAllReviews,
+    getAllReviewsForBookmark,
     getReview,
-    newReview, 
+    newReviewForBookmark, 
     updateReview,
     deleteReview,
 } = require('../queries/reviews');
 
 reviews.get("/", async (req, res) => {
-    const reviews = await getAllReviews();
+    const reviews = await getAllReviewsForBookmark(req.params.bookmark_id);
     res.json(reviews);
 
     // if (reviews.success) {
@@ -25,6 +26,8 @@ reviews.get("/", async (req, res) => {
 });
 
 reviews.get("/:id", async (req, res) => {
+   
+
     // const { id } = req.params;
     // const rev = await getReview(id);
     // res.json(rev);
@@ -33,7 +36,8 @@ reviews.get("/:id", async (req, res) => {
 });
 
 reviews.post("/", async (req, res) => {
-    const created = await newReview(req.body);
+    const { bookmark_id } = req.params
+    const created = await newReviewForBookmark(req.body, bookmark_id);
     res.json(created);
 });
 
