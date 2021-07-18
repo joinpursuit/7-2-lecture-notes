@@ -17,13 +17,16 @@ function BookmarkDetails() {
     }
   }
 
-  useEffect(async () => {
-    try {
-      const result = await axios.get(`${API}/bookmarks/${id}`);
-      setBookmark(result.data.payload);
-    } catch (err) {
-      console.log(err);
+  useEffect(() => {
+    const getTheBookmark = async () => {
+      try {
+        const result = await axios.get(`${API}/bookmarks/${id}`);
+        setBookmark(result.data.payload);
+      } catch (err) {
+        console.log(err);
+      }
     }
+    getTheBookmark();
   }, [id]);
   
   const handleDelete = async () => {

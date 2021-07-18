@@ -11,6 +11,16 @@ const app = express();
 app.use(cors());
 app.use(express.json());
 
+const middlewareLogger = (req, res, next) => {
+  console.log("\x1b[37m\x1b[44m", 'LOGGER -- RECEIVED REQUEST');
+  console.log("\x1b[43m\x1b[30m", 'INFO::: method = ', req.method);
+  console.log("\x1b[43m\x1b[30m", 'INFO:::    url = ', req.url);
+  console.log("\x1b[0m"); // reset color
+  next();
+};
+
+app.use(middlewareLogger);
+
 // ROUTES
 app.get("/", (req, res) => {
 	res.send("Welcome to Bookmarks App");

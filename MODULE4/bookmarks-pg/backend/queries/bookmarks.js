@@ -1,6 +1,7 @@
 const db = require("../db/config.js");
 
 const getAllBookmarks = async () => {
+	console.log('Fetching Bookmarks From Database');
     try {
         const allBookmarks = await db.any("SELECT * FROM bookmarks");
         return allBookmarks;
@@ -19,7 +20,7 @@ const getBookmark = async (id) => {
         console.log(error)
     }
 };
-// \
+
 const createBookmark = async (newBookmark) => {
 	const { name, url, category, is_favorite } = newBookmark 
     try {

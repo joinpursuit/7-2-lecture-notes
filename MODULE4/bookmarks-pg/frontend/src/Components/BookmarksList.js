@@ -8,14 +8,22 @@ const API = apiURL();
 function BookmarksList() {
   const [bookmarks, setBookmarks] = useState([]);
   
-  useEffect(async () => {
-    try {
-      const res = await axios.get(`${API}/bookmarks`);
-      // res.data = { success: true, payload: bookmarks }
-      setBookmarks(res.data.payload);
-    } catch (err) {
-      console.log(err);
-    }
+  useEffect(() => {
+    const getTheBookmarks = () => {
+      try {
+        // console.log('About to make a "GET" to:', `${API}/bookmarks`);
+        console.log('About to make a "GET" to:', `${API}/bookmarks`);
+        setTimeout(async () => { // putting call inside setTimeout to pause execution for a bit, educational purposes only.
+          const res = await axios.get(`${API}/bookmarks`);
+          console.log('Received a response', res.data);
+          setBookmarks(res.data.payload);
+        }, 5000)
+      } catch (err) {
+        console.log(err);
+      }
+    };
+
+    getTheBookmarks();
   }, []);
   
   return (

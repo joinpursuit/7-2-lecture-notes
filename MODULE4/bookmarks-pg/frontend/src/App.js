@@ -13,17 +13,6 @@ import Show from "./Pages/Show";
 import NavBar from "./Components/NavBar";
 
 function App() {
-  const [bookmarks, setBookmarks] = useState([]);
-  // delete () {
-  //   await axios.delete
-  //   setBookmarks((prev) => {
-  //      const dummyState = [...prev];
-  //      dummyState.splice();
-  //   })
-  // }
-
-  // fetch
-  //  fetch and setBookmarks
   return (
     <div className="App">
       <Router>

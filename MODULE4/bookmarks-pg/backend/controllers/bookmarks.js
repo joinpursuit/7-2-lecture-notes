@@ -9,11 +9,15 @@ const {
 } = require("../queries/bookmarks");
 
 
-bookmarks.get("/", async (req, res) => {
-    const bookmarks = await getAllBookmarks();
-    console.log("RESPONSEEEE!!!", bookmarks);
-    res.json({ success: true, payload: bookmarks });
-    // res.json(bookmarks);
+bookmarks.get("/", (req, res) => {
+    console.log('BookmarksController:Index');
+    setTimeout(async () => { // wrapping in setTimeout to simulate latency and debugging/educational purposes only
+
+        const bookmarks = await getAllBookmarks();
+        console.log('Finishing Response');
+        res.json({ success: true, payload: bookmarks });
+        
+    }, 5000);
 });
 
 bookmarks.post("/", async (req, res) => {
