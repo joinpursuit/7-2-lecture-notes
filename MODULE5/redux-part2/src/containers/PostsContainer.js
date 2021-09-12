@@ -16,7 +16,7 @@ const PostsContainer = () => {
   useEffect(() => {
       // create async function to:
       // 1. fetchPosts from  JSON Placeholder API("https://jsonplaceholder.typicode.com/posts") with axios.get
-      // 2. dispatch our addPosts action creator with the data from our response as the argument
+      // 2. dispatch our addPosts action creator with the res.data from our response as the argument
 
       // invoke our async function
 
