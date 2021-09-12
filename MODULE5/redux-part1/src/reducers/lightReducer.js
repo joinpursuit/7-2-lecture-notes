@@ -1,12 +1,12 @@
 // reducer
+import { TOGGLE_LIGHTS } from "../actions/actionTypes";
 // two states: false means lights off, true means lights on
 const lightReducer = (state = false, action) => {
-  console.log(state, action);
-  switch (action.type) {
-    case "TOGGLE":
-      return !state;
+  switch(action.type){
+    case TOGGLE_LIGHTS:
+      return !state
     default:
-      return state;
+      return state
   }
 };
 
