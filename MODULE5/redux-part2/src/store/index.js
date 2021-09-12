@@ -1,8 +1,10 @@
 // First let's create our store here... to do this we need to create our rootReducer
-// import rootReducer from "../reducers/rootreducer"
-// import createStore from "redux"
-// import devToolsEnhancer from "redux-devtools-extension"
+import { createStore } from "redux";
+import { devToolsEnhancer } from "redux-devtools-extension";
 
+import rootReducer from "../reducers/rootReducer";
+
+const store = createStore(rootReducer, devToolsEnhancer());
 
 //create our store const by passing our createStore function our rootReducer and devToolsEnhancer 
 // **NOTE** devToolsEnhancer is a function so we need to invoke it
@@ -10,4 +12,4 @@
 // an enhancer, however, this is out of the scope for todays lecture....
 
 
-//export our store
+export default store;
