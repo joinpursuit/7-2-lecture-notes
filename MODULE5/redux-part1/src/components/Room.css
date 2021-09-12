@@ -1,0 +1,21 @@
+.Room {
+}
+
+.Room img {
+  width: 100%;
+  z-index: 1;
+}
+
+.Room button {
+  position: fixed;
+  width: 3vw;
+  height: 4vw;
+  top: 16.5vw;
+  left: 75vw;
+  z-index: 2;
+  background-color: transparent;
+}
+
+.Room button:hover {
+  cursor: grab;
+}
