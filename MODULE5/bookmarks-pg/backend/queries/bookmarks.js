@@ -1,7 +1,6 @@
 const db = require("../db/config.js");
 
 const getAllBookmarks = async () => {
-	console.log('Fetching Bookmarks From Database');
     try {
         const allBookmarks = await db.any("SELECT * FROM bookmarks");
         return allBookmarks;
@@ -24,7 +23,6 @@ const getBookmark = async (id) => {
 const createBookmark = async (newBookmark) => {
 	const { name, url, category, is_favorite } = newBookmark 
     try {
-		console.log('INSERTING INTO THE DATABASE!')
         const theBookmark = await db.one(
 			"INSERT INTO bookmarks(name, url, category, is_favorite) VALUES($1, $2, $3, $4) RETURNING *",
 			[name, url, category, is_favorite]
@@ -56,7 +54,6 @@ const updateBookmark = async (id, bookmark) => {
 	}
 }
 
-// module.exports = { getAllBookmarks: getAllBookmarks, getBookmark: getBookmark };
 module.exports = { 
 	getAllBookmarks, 
 	getBookmark, 
