@@ -1,14 +1,15 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
 import { withRouter, useHistory, useParams } from "react-router-dom";
+import { useSelector } from "react-redux";
 import { apiURL } from "../util/apiURL";
 // import '../myFile.css';
 
 const API = apiURL();
 function BookmarkDetails() {
-  const [bookmark, setBookmark] = useState([]);
   let history = useHistory();
   const { id } = useParams();
+  const bookmark = useSelector((state) => state.bookmarks[id])
 
   const deleteBookmark = async () => {
     try {
@@ -18,17 +19,17 @@ function BookmarkDetails() {
     }
   }
 
-  useEffect(() => {
-    const getTheBookmark = async () => {
-      try {
-        const result = await axios.get(`${API}/bookmarks/${id}`);
-        setBookmark(result.data.payload);
-      } catch (err) {
-        console.log(err);
-      }
-    }
-    getTheBookmark();
-  }, [id]);
+  // useEffect(() => {
+  //   const getTheBookmark = async () => {
+  //     try {
+  //       const result = await axios.get(`${API}/bookmarks/${id}`);
+  //       setBookmark(result.data.payload);
+  //     } catch (err) {
+  //       console.log(err);
+  //     }
+  //   }
+  //   getTheBookmark();
+  // }, [id]);
   
   const handleDelete = async () => {
     await deleteBookmark();

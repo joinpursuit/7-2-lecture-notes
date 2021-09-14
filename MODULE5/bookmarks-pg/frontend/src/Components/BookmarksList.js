@@ -1,27 +1,24 @@
 import axios from "axios";
 import { useState, useEffect } from "react";
+import { useSelector, useDispatch } from "react-redux";
 import { apiURL } from "../util/apiURL.js";
 import BookmarkListItem from "./BookmarkListItem";
 
 const API = apiURL();
 
 function BookmarksList() {
-  const [bookmarks, setBookmarks] = useState([]);
+  const entireState = useSelector((state) => state);
+  console.log(entireState)
+  const { bookmarks } = entireState;
+  const dispatch = useDispatch();
   
   useEffect(() => {
-    const getTheBookmarks = () => {
-      try {
-        console.log('About to make a "GET" to:', `${API}/bookmarks`);
-        setTimeout(async () => { // putting call inside setTimeout to pause execution for a bit, educational purposes only.
-          
-          const res = await axios.get(`${API}/bookmarks`);
-          console.log('Received a response', res.data);
-          setBookmarks(res.data.payload);
-
-        }, 5000)
-      } catch (err) {
-        console.log(err);
-      }
+    const getTheBookmarks = async () => {
+      const res = await axios.get(`${API}/bookmarks`);
+      dispatch({
+        type: "ADD_BOOKMARKS", 
+        bookmarks: res.data.payload
+      });
     };
 
     getTheBookmarks();
@@ -39,7 +36,7 @@ function BookmarksList() {
             </tr>
           </thead>
           <tbody>
-            {bookmarks.map((bookmark) => {
+            {Object.values(bookmarks).map((bookmark) => {
               return <BookmarkListItem key={bookmark.id} bookmark={bookmark} />;
             })}
           </tbody>
