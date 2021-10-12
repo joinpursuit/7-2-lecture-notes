@@ -1,0 +1,16 @@
+LAUNDRY ALGO PLAIN ENGLISH 
+
+Q: What is the desired output of this algorithm?
+A: two bins, one with whites one with colors 
+
+Q: What inputs are required to achieve this outcome?
+A: dirty bin with clothes 
+
+Q: What set of steps need to be followed in order to achieve the output?
+A: 
+1. pick up piece of clothing 
+2. decide if its white or non-white 
+3. put it in the whiteDirty bin if its white 
+4. put it in the otherBin if it non-white
+5. do steps 2-4 until dirtyBin is empty 
+
