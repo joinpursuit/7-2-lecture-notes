@@ -10,11 +10,40 @@
 
 // time = O(n^2) - quadratic 
 // space = O(1)
-function twoSum (arr, target) {
+function twoSum (arr, target) { [1,2,3], 5
+    for (let i = 0; i < arr.length; i++) { // n 
+        const num1 = arr[i]; // 1 
+        for (let j = i + 1; j < arr.length; j++) { // n 
+            const num2 = arr[j]; // 1
+            if (num1 + num2 === target) {
+                return true 
+            }
+        }
+    }
+    return false;
 }
 
 
 // time = O(n) - linear 
 // space = O(n)
 function fastTwoSum (arr, target) {
+    // iterate the arr, and store the remainer of target - current el in iteration 
+    const remainders = {};
+    for (let i = 0; i < arr.length; i++) {
+        const currentNum = arr[i];
+        if (remainders[currentNum]) {
+            return true;
+        }
+
+        const remainder = target - currentNum;
+        remainders[remainder] = true;
+    }   
+
+    return false;
 }
+
+// remainder = { 4: true, 3: true } 
+// [1,2,3], 5
+// 1 --- 
+// 2 --- remainders includes 2? 
+// 3 --- does the remainders obj include 3? 
