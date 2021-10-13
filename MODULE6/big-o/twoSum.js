@@ -42,8 +42,10 @@ function fastTwoSum (arr, target) {
     return false;
 }
 
-// remainder = { 4: true, 3: true } 
-// [1,2,3], 5
-// 1 --- 
-// 2 --- remainders includes 2? 
-// 3 --- does the remainders obj include 3? 
+// [1,3,5,6] --- 9
+
+// differences = { 8: 1, 6: 3, 4: 5 }
+// i = 3
+// num = 6 
+// diff = 3
+// differences['6'] ? 
