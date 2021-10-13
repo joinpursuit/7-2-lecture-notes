@@ -1,51 +1,54 @@
 // what is the time  complexity of each of the below algorithms 
 // what is the space complexity of each of the below algorithms 
 
-// time 
-// space 
+// time  --- constant --- O(1)
+// space --- 
 function findLastElement (array) {
-    return array[array.length - 1]; // O(3)
+    return array[array.length - 1];
 }
 
 
-// time 
-// space 
-function findAverage (array) {
-    const sum = array.reduce(0, (acc, el) => {
-        return acc + el 
-    }); 
 
-    return sum / array.length; 
+// time ---- O(n)
+// space ---- O(2)... O(1)
+function findAverage (array) { 
+    const sum = array.reduce(0, (acc, el) => { // O(1)
+        const newNum = acc + el; // O(1) 
+        return newNum; // 1
+    }); // (n + 1 + 1)
+
+    return sum / array.length; // O(4) ... 1 + 1 + 1 + 1 
 }
 
 
-// time 
-// space
+
+// time  --- O(n)
+// space --- O(1)
 function findLargest (arr) {
     let largest = arr[0]; 
-    let i = 0; 
+    let i = 0;
     while (i < arr.length) { 
         if (arr[i] > largest) largest = arr[i]; 
         i++; 
-    }
+    } 
 
-    return largest;
+    return largest; 
 }
 
 
-// time
-// space
+// time ---- 1 + n + 9n + 1 ---- n
+// space =---- 2n + 1 ---- O(n)
 function countCharsNotSpaces (sentence) {
-    const validCountingChars = [];
+    const validCountingChars = []; // 1
 
-    const chars = sentence.split('');
-    chars.forEach(char => { 
+    const chars = sentence.split(''); // n
+    chars.forEach(char => { // 1 
         if (char !== ' ') { 
             validCountingChars.push(char); 
         }
-    });
+    }); 
 
-    return validCountingChars.length;
+    return validCountingChars.length; 
 }
 
 

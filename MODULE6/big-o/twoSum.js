@@ -11,12 +11,10 @@
 // time = O(n^2) - quadratic 
 // space = O(1)
 function twoSum (arr, target) {
-
 }
 
 
 // time = O(n) - linear 
 // space = O(n)
 function fastTwoSum (arr, target) {
-
 }

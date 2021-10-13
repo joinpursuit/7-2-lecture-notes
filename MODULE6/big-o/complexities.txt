@@ -3,10 +3,14 @@
 O(1) AKA Constant
 No matter the size of the input, the time it takes is always constant.  
 
+function getLastElementFromArr (arr) { 
+    return arr[arr.length - 1];
+}
+
 
 --- --- --- --- --- --- --- 
 --- --- --- --- --- --- --- 
-O(log(n)) AKA Logarithmic 
+O(log (n)) AKA Logarithmic 
 Divide and conquer. Divide in two until you're out of input. 
 The dictionary example. Default base is two, but it could be 
 a different base, you could do log base 3 or 10... Or, probably any number.
@@ -27,6 +31,9 @@ log b2 (64) = 6
 O(n) AKA Linear 
 Time it takes to execute grows parallel with size of input. 
 Think iteration over input.
+function printAllNums(arr) { 
+    arr.forEach(console.log)
+}
 
 
 --- --- --- --- --- --- --- 
@@ -34,6 +41,15 @@ Think iteration over input.
 O(n^2) AKA Quadratic
 Time it takes to execute grows in a squared manner.
 Think nested loops over input. 
+
+
+function nestedIteration (arr) {
+    arr.forEach(element => {
+        arr.forEach(el2 => {
+            console.log(`${element} ${el2}`)
+        })
+    })
+}
 
 
 --- --- --- --- --- --- --- 
@@ -45,7 +61,7 @@ of every number between 1 and input size.
 
 --- --- --- --- --- --- --- 
 --- --- --- --- --- --- --- 
-n = 10 
+n = 10
 
 O(1)      = 1 
 O(log(n)) = 3.3

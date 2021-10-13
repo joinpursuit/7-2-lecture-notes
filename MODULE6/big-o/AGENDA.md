@@ -17,7 +17,4 @@
         - what are my limitations in terms of complexities? 
         - what is the worst case scenario? 
     - twoSum
-    - anagrams 
-
-
-
+    - anagrams

@@ -1,5 +1,7 @@
 // sorting takes O(n log(n)) time... 
 // a complexity we haven't discussed yet
+// mergeSort and quickSort are examples of 
+// sorting algorithms with this complexity
 
 
 // time O(n*log(n))
