@@ -12,8 +12,8 @@ let buttons = {
 // OBJECT-ORIENTED IMPLEMENTATION OF A ANIMAL CLASS
 
 class Animal {
-    constructor(name, type, age, color, isFriendly=false ){
-        this.name = name
+    constructor(name, type, age, color, isFriendly = false) {
+        this.name = name;
         this._type = type;
         this.age = typeof age != "number" ? 1 : age;
         this.color = (color || "black");
@@ -21,7 +21,7 @@ class Animal {
     }
 
     //ADD METHODS TO ANIMAL CLASS
-    walk(){
+    walk() {
         console.log("clip, clop")
     }
 
@@ -29,7 +29,7 @@ class Animal {
         console.log(`Sniff sniff, ${otherBeing.name}, I like your ${otherBeing.color} fur.`);
     }
 
-    ageUp(){
+    ageUp() {
         this.age++
     }
     
@@ -62,11 +62,8 @@ class Animal {
 // console.log(fluffy.age) // after age up
 // const fido = new Animal("Fido", "dog", 12, "white", false)
 // console.log(fido)
-
 // fluffy.greet(fido)
 // fido.greet(fluffy)
-
-
 
 class StringExtra {
     static reverse(str) {
@@ -74,12 +71,13 @@ class StringExtra {
     }
     static description =
       "I have some extra methods for doing things with strings";
-  }
-  
-  
-  console.log(StringExtra.reverse("I palindrome I"));
+}
 
-  console.log(StringExtra.description);
+
+// console.log(StringExtra.reverse("I palindrome I"));
+
+// console.log(StringExtra.description);
+
  
 
 
@@ -92,3 +90,4 @@ class StringExtra {
 
 
 
+export default Animal;

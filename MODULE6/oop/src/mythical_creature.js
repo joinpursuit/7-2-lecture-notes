@@ -1,0 +1,23 @@
+import Animal from "./animal";
+
+class MythicalCreature extends Animal {
+	grantWish(wish) {
+		console.log(`I have granted you your wish to ${wish}`);
+	}
+
+	walk() {
+		console.log(`💫✨🌟 ${this.walkStyle} 💫✨🌟 `);
+	}
+
+	greet(otherBeing) {
+		super.greet(otherBeing);
+		console.log("I am very pleased to see you today!");
+	}
+}
+
+const chips = new MythicalCreature("Chips", "unicorn", "iridescent white");
+const blueBird = new Animal('Birdie', 'bird', 1, 'boue');
+window.chips = chips;
+window.bird = blueBird;
+
+export default MythicalCreature;
