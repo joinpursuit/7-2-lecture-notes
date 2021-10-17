@@ -1,0 +1,24 @@
+const arithGeo = (arr) => {
+    const arithmetic = [];
+    const geometric = [];
+  
+    for (let i = 0; i < arr.length - 1; i++) {
+      arithmetic.push(arr[i] - arr[i + 1]);
+      geometric.push(arr[i + 1] / arr[i]);
+    }
+  
+    return arithmetic.every((num) => {
+      return num === arithmetic[0];
+    })
+      ? "Arithmetic"
+      : geometric.every((num) => {
+          return num === geometric[0];
+        })
+      ? "Geometric"
+      : -1;
+  };
+
+
+console.log(arithGeo([2, 4, 6, 8]));
+console.log(arithGeo([20, 28, 36, 44]));
+console.log(arithGeo([2, 6, 18, 54]));

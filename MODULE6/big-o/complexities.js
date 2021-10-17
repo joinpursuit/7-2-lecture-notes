@@ -36,12 +36,12 @@ function findLargest (arr) {
 }
 
 
-// time ---- 1 + n + 9n + 1 ---- n
-// space =---- 2n + 1 ---- O(n)
-function countCharsNotSpaces (sentence) {
-    const validCountingChars = []; // 1
+//
 
-    const chars = sentence.split(''); // n
+function countCharsNotSpaces (sentence) {
+    const validCountingChars = []; 
+
+    const chars = sentence.split(''); 
     chars.forEach(char => { // 1 
         if (char !== ' ') { 
             validCountingChars.push(char); 
@@ -55,10 +55,10 @@ function countCharsNotSpaces (sentence) {
 // time 
 // space 
 function findMostRepeatedChar(sentence) {
-    const charsArrs = {};
-    const words = sentence.split(' ');
+    const charsArrs = {}; //1
+    const words = sentence.split(' '); //n
     words.forEach(word => {
-        const chars = word.split('');
+        const chars = word.split(''); 
         chars.forEach(char => {
             if (!charsArrs[char]) {
                 charsArr[char] = []
@@ -66,7 +66,7 @@ function findMostRepeatedChar(sentence) {
 
             charsArr[char].push(1);
         });
-    });
+    }); //n
 
     const keys = Object.keys(charsArrs);
     let mostSeenSoFar = 0;
