@@ -1,5 +1,9 @@
 import Animal from "./animal";
 
+// Animal class
+// properties: name, _type, age, color, isFriendly
+// methods: walk(), greet(), ageUp()
+
 class MythicalCreature extends Animal {
 	grantWish(wish) {
 		console.log(`I have granted you your wish to ${wish}`);

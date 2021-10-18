@@ -50,4 +50,4 @@ class DeckOfCards {
 }
   
 const deck = DeckOfCards.buildNewPlayingCardsDeck();
-console.log(deck);
+// console.log(deck);
