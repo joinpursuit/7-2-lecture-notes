@@ -16,7 +16,7 @@ const happyNewYear = (num) => {
   }
 };
 
-// happyNewYear(10)
+
 
 //  determines if a number is even or odd
 // recursively subtract 2 form the number 
@@ -24,15 +24,26 @@ const happyNewYear = (num) => {
 
 //  this function in only for displaying recursion - dont use it :)
 const isEven = (num) => {
+<<<<<<< HEAD
   if ( num === 0 ){
     return "number is even";
   }
   if( num === 1 ){
+=======
+  if (num === 0){
+    return "number is even";
+  }
+  if(num === 1){
+>>>>>>> cd801e2257221e7b9b7c46f440aeecfcafe47a2a
     return "number is odd";
   }
   return isEven(num - 2);
 }
+<<<<<<< HEAD
 const nums = [ 1,2,3,5,6 ];
+=======
+const nums = [1,2,3,5,6];
+>>>>>>> cd801e2257221e7b9b7c46f440aeecfcafe47a2a
 // expected outcome is 17
 //  add all items in an array and return the sum
 //  default parameter only happens when the argument is undefined
@@ -54,12 +65,17 @@ const fibo = (num) => {
     return 1;
   }
   return fibo(num - 1) + fibo(num - 2);
+<<<<<<< HEAD
  }
+=======
+ };
+>>>>>>> cd801e2257221e7b9b7c46f440aeecfcafe47a2a
 
 const fibMemo = (num, memo = []) =>{
   if( num <=1 ){
     return 1;
   } else if (!memo[num]){
+<<<<<<< HEAD
     memo[num] = fibMemo(num - 1, memo)  + fibMemo(num - 2, memo);
    }
    return memo[num];
@@ -69,3 +85,13 @@ const fibMemo = (num, memo = []) =>{
 console.time("fibmemo");
 console.log(fibo(30));
 console.timeEnd("fibmemo");
+=======
+    memo[num] = fibMemo(num - 1, memo) 
+    + fibMemo(num - 2, memo);
+   }
+   return memo[num];
+};
+console.time("fibmemo");
+console.log(fibo(30));
+console.timeEnd("fibmemo");
+>>>>>>> cd801e2257221e7b9b7c46f440aeecfcafe47a2a
