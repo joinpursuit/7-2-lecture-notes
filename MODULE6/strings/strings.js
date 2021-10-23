@@ -1,6 +1,6 @@
-// Strings are a primitive data type in JavaScript 
-// used to represent and manipulate a sequence of characters.
-//  They must be denoted by single or double quotation marks.
+// Strings are a primitive data type in JavaScript used 
+// to represent and manipulate a sequence of characters.
+// They must be denoted by single or double quotation marks.
 
 // Primitive data types are immutable - THEY CANNOT BE ALTERED
 // **That does not mean the variables used to store strings are immutable! - These can be reassigned**
