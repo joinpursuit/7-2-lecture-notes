@@ -8,7 +8,7 @@
 
 // Integer - a whole number that is NOT a fraction
 
-let myInt = 10;
+
 
 
 // Floats -  aproximate value for a fraction calculated by a computer
@@ -60,12 +60,12 @@ const varDieRoll = (num) => {
 const avgRoll = (numSides, numRolls) => {
 	let sum = 0;
 	for(let i = 0; i < numRolls; i++){
-		sum+=varDieRoll(numSides)
+		sum += varDieRoll(numSides)
 	}
-	return Math.round(sum/numRolls)
+	return Math.round(sum / numRolls)
 }
 
-console.log(avgRoll(6, 100))
+
 
 // Lets work with JS Math object to call some methods in a familiar way
 
@@ -77,18 +77,21 @@ console.log(avgRoll(6, 100))
 // 2. write a function that will roll a certain number of dice with a certain number of sides
 //  this must return the average of these rolls.
 
+// vxvpbxcuajjqywhzxtp, 153 =>  '\u000f\u0011\u000f\tû\u0011ü\u000eú\u0003\u0003\n\u0012\u0010\u0001\u0013\u0011\r\t'
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+// mavxsjllyklozl, 382 => ëßôöñèêê÷éêíøê 
+function encrypt(text, rule) {
+	let nums = [] 
+  let secretText = ""
+	for(let i = 0; i < text.length; i++){
+		let letterCode = text[i].charCodeAt()
+		let target = 0;
+		while(rule + letterCode > 255) {
+				rule -= 256
+			} 
+	secretText += String.fromCharCode(letterCode + rule)
+	nums.push(letterCode)
+	}
+	return secretText
+}
+console.log(encrypt("vxvpbxcuajjqywhzxtp", 154))
