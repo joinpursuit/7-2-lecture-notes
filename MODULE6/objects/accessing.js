@@ -14,3 +14,5 @@ const { simpleObj } = require('./sample_data');
 //    const myLetter = 'a'; 
 //    how do we use the variable to access the value 
 //    at 'a' from simpleObj?
+
+window.banana = 'ssfsdfsdfsdf'
