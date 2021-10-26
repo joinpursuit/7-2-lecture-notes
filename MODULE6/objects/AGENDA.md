@@ -4,5 +4,6 @@
 2. Accessing 
 3. Setting 
 4. Iterating 
-5. Nested objests 
-6. Destructuring 
+5. Nested objects
+6. Combining 
+7. Destructuring <--google it ...seriously
