@@ -12,9 +12,6 @@
     - assume worst case 
     - step by step 
     - dominant term 
-4. Exercises
-    - initial thoughts 
-        - what are my limitations in terms of complexities? 
-        - what is the worst case scenario? 
-    - twoSum
-    - anagrams
+4. Exercises 
+    - twoSum.js
+    - anagrams.js

@@ -1,29 +1,28 @@
 // what is the time  complexity of each of the below algorithms 
-// what is the space complexity of each of the below algorithms 
 
-// time  --- constant --- O(1)
-// space --- 
+// time  ---
+// space ---
 function findLastElement (array) {
     return array[array.length - 1];
 }
 
 
 
-// time ---- O(n)
-// space ---- O(2)... O(1)
+// time  --- 
+// space ---
 function findAverage (array) { 
-    const sum = array.reduce(0, (acc, el) => { // O(1)
-        const newNum = acc + el; // O(1) 
-        return newNum; // 1
-    }); // (n + 1 + 1)
+    const sum = array.reduce(0, (acc, el) => {
+        const newNum = acc + el;
+        return newNum;
+    });
 
-    return sum / array.length; // O(4) ... 1 + 1 + 1 + 1 
+    return sum / array.length;
 }
 
 
 
-// time  --- O(n)
-// space --- O(1)
+// time  --- 
+// space ---
 function findLargest (arr) {
     let largest = arr[0]; 
     let i = 0;
@@ -36,13 +35,14 @@ function findLargest (arr) {
 }
 
 
-//
 
+// time  --- 
+// space --- 
 function countCharsNotSpaces (sentence) {
     const validCountingChars = []; 
 
     const chars = sentence.split(''); 
-    chars.forEach(char => { // 1 
+    chars.forEach(char => { 
         if (char !== ' ') { 
             validCountingChars.push(char); 
         }
@@ -52,11 +52,12 @@ function countCharsNotSpaces (sentence) {
 }
 
 
-// time 
-// space 
+
+// time  ---
+// space ---
 function findMostRepeatedChar(sentence) {
-    const charsArrs = {}; //1
-    const words = sentence.split(' '); //n
+    const charsArrs = {};
+    const words = sentence.split(' ');
     words.forEach(word => {
         const chars = word.split(''); 
         chars.forEach(char => {
@@ -66,7 +67,7 @@ function findMostRepeatedChar(sentence) {
 
             charsArr[char].push(1);
         });
-    }); //n
+    });
 
     const keys = Object.keys(charsArrs);
     let mostSeenSoFar = 0;
