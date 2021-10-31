@@ -18,8 +18,10 @@ class Animal {
         this.age = typeof age != "number" ? 1 : age;
         this.color = (color || "black");
         this.isFriendly = isFriendly;
+        // this.description = `This is a ${type}`
     }
 
+    static description = "A member of the animal kingdom."
     //ADD METHODS TO ANIMAL CLASS
     walk() {
         console.log("clip, clop")
@@ -32,19 +34,51 @@ class Animal {
     ageUp() {
         this.age++
     }
-    
 
-    // ADD MULTIPLE METHODS TO OUR CLASS AND PASS THEM ARGUEMENTS
+    eat(food){
+        console.log(`Mmmm... this ${food} is yummy.`)
+    }
 
-    // CREATE PROPERTIES ON OUR CLASSES INSIDE THE CONSTRUCTOR
+    play(anotherAnimal){
+        console.log(`${this.name} is playing with ${anotherAnimal.name}`)
+    }
 
-    // CUSTOMIZE EACH INSTANCE (PROPERTIES AND METHODS) OF OUR CLASS
-
-    // ADD DEFAULT VALUES TO OUR INSTANCES (IN CONSTRUCTOR)
-
-    // MODIFY OUR METHOODS SO THAT OUR OBJECTS CAN INTERACT WITH OTHER OBJECTS
-
+    static sleep(){
+        console.log("I'm tired.... zzzzzzzz")
+    }
 }
+
+const cat = new Animal("Fluffykins", "cat", "two", "white");
+console.log(cat)
+console.log(Animal.description)
+console.log(cat.description)
+Animal.sleep("total nonsense")
+// ADD MULTIPLE METHODS TO OUR CLASS AND PASS THEM ARGUEMENTS
+
+cat.eat("salmon")
+
+// CREATE PROPERTIES ON OUR CLASSES INSIDE THE CONSTRUCTOR
+// const cat = new Animal("Fluffykins", "cat", "two", "white");
+console.log(cat._type)
+// ^^ the underscore just denotes this value should not be reassigned
+console.log(cat.name)
+console.log(cat.age)
+console.log(cat.color)
+console.log(cat.isFriendly)
+
+// CUSTOMIZE EACH INSTANCE (PROPERTIES AND METHODS) OF OUR CLASS
+
+const dog = new Animal("Clover", "dog", 17, "brown", true)
+console.log(dog)
+// ADD DEFAULT VALUES TO OUR INSTANCES (IN CONSTRUCTOR)
+
+// MODIFY OUR METHOODS SO THAT OUR OBJECTS CAN INTERACT WITH OTHER OBJECTS
+
+cat.play(dog);
+dog.play(cat);
+// "Fluffykins is playing with Clover"
+// "Clover is playing with Fluffykins"
+
 //WHY IS THIS BETTER?
 
 // CONSOLE.LOG NEW INSTANCES OF OUR CLASS
@@ -74,9 +108,9 @@ class StringExtra {
 }
 
 
-// console.log(StringExtra.reverse("I palindrome I"));
+console.log(StringExtra.reverse("I palindrome I"));
 
-// console.log(StringExtra.description);
+console.log(StringExtra.description);
 
  
 
