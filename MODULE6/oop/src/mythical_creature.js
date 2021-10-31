@@ -19,9 +19,7 @@ class MythicalCreature extends Animal {
 	}
 }
 
-const chips = new MythicalCreature("Chips", "unicorn", "iridescent white");
-const blueBird = new Animal('Birdie', 'bird', 1, 'blue');
-window.chips = chips;
-window.bird = blueBird;
+window.chips = new MythicalCreature("Chips", "unicorn", "iridescent white");
+window.bird = new Animal('Birdie', 'bird', 1, 'blue');
 
 export default MythicalCreature;
