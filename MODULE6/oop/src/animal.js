@@ -11,6 +11,7 @@ let buttons = {
 
 // OBJECT-ORIENTED IMPLEMENTATION OF A ANIMAL CLASS
 
+// const animal = new Animal()
 class Animal {
     constructor(name, type, age, color, isFriendly = false) {
         this.name = name;
@@ -22,6 +23,7 @@ class Animal {
 
     //ADD METHODS TO ANIMAL CLASS
     walk() {
+        console.log(this);
         console.log("clip, clop")
     }
 

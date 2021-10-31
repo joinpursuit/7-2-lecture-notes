@@ -2,7 +2,7 @@
 // 1. method style        --- instance.method()
 // 2. function style      --- method()
 // 3. constructor style   --- new Animal()
-// 4. bind-time style with call or apply --- instance.method.call(context) 
+// 4. bind-time style with call() or apply() --- instance.method.call(context) 
 
 // `this` inside fn with 4 different invocation methods?
 // 1. the "receiver" or the "caller"
@@ -30,6 +30,7 @@
 const FruitBasket = {
 	fruits: ['orange', 'orange', 'orange', 'banana', 'banana', 'apple'],
 	addFruit(fruit) {
+		console.log(this);
 		this.fruits.push(fruit);
 	}
 }
@@ -42,9 +43,11 @@ const FruitBasket = {
 // console.log(listOfFruits);
 
 // ------- function style invocation ----------- 
-// const theFunction = FruitBasket.pickUpFruit;
-// theFunction('watermelon');
+// const theFunction = FruitBasket.addFruit;
+// theFunction('melon');
 // console.log(listOfFruits);
+
+
 
 
 class VeggieBasket {
@@ -58,8 +61,8 @@ class VeggieBasket {
 }
 
 // ----- contructor style invocation -----------
-// const veggiesBasketInstance = new VeggieBasket();
-// const listOfVeggies = veggeisBasketInstance.veggies;
+const veggiesBasketInstance = new VeggieBasket();
+const listOfVeggies = veggiesBasketInstance.veggies;
 // console.log(listOfVeggies);
 
 // ---------- method style invocation ----------
@@ -68,21 +71,36 @@ class VeggieBasket {
 
 // ------- function style invocation ----------- 
 // const theFunction = veggiesBasketInstance.addVeggie;
-// theFunction('lettuce');
+// theFunction('lettuce'); // LOST CONTEXT
 // console.log(listOfVeggies);
 
 // ------- call() and apply() ------------------
 // ---- before call and apply cover binding ----
 // ---- bind
-// const unboundFn = veggieBasket.addVeggie;
-// const boundFn = veggieBasket.addVeggie.bind(veggieBasket); 
-// const smallBag = { veggies: [] };
-// const boundAddVegToSmallBag = unboundFn.bind(smallBag);
-// boundAddVegToSmallBag('spinach');
-// boundAddVegToSmallBag('tomato'); // yeah i went there 
+const unboundFn = veggiesBasketInstance.addVeggie; // NOT INVOKING
+const boundFn = unboundFn.bind(veggiesBasketInstance); 
+boundFn('banana'); // function style ... but now we have ctx 
+
+const smallBag = { veggies: ['CANDY'] };
+const boundAddVegToSmallBag = unboundFn.bind(smallBag);
+// 
+boundAddVegToSmallBag('spinach');
+boundAddVegToSmallBag('tomato');
+console.log(smallBag);
 
 
 // ---- call and apply
-// const someOtherVeggieBasket = new VeggieBasket();
-// veggieBasket.addVeggie.call(someOtherVeggieBasket, 'sweet potatoees');
-// veggieBasket.addVeggie.apply(someOtherVeggieBasket, ['kale']);
+const someOtherVeggieBasket = new VeggieBasket();
+const theFn = veggiesBasketInstance.addVeggie;
+
+// the next three lines do the same thing.
+theFn.call(someOtherVeggieBasket, 'sweet potatoes');
+theFn.apply(someOtherVeggieBasket, ['salt potatoes']); // apply - array 
+theFn.bind(someOtherVeggieBasket)('sugar potatoes'); // call - comma
+
+
+const theNewFn = someOtherVeggieBasket.addVeggie;
+const blueberryAdditionFn = theNewFn.bind(someOtherVeggieBasket);
+blueberryAdditionFn('blueberries');
+
+console.log(someOtherVeggieBasket)

@@ -25,17 +25,25 @@ class DeckOfCards {
 				}
 			}
 		}
-
+		// factory method, creates and returns instance 
 		return new DeckOfCards(cards);
+	}
+
+	static buildUnoDeck() {
+		return [1,2,3,4].map(() => {
+
+		});
+		// static and not factory can be used for whatever you want
 	}
 
 	constructor(cards = []) {
 		this.cards = cards;
-		this.shuffle(this.cards);
+		this.shuffle();
 	}
 
-	shuffle(array) {
-		let m = array.length;
+	shuffle() {
+		// this... 
+		let m = this.cards.length;
 		let i = 0;
 		// While there remain elements to shuffle…
 		while (m) {
@@ -43,11 +51,12 @@ class DeckOfCards {
 			i = Math.floor(Math.random() * m--);
 
 			// And swap it with the current element.
-			[array[m], array[i]] = [array[i], array[m]];
+			[this.cards[m], this.cards[i]] = [this.cards[i], this.cards[m]];
 		}
-		return array;
+		return this.cards;
 	}
 }
   
 const deck = DeckOfCards.buildNewPlayingCardsDeck();
 // console.log(deck);
+window.DeckOfCards = DeckOfCards;
