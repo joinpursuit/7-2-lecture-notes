@@ -13,10 +13,10 @@
 //    we'd see `this` is the bird instance defined above
 // 2. global/window/undefined
 // 		when invoking an fn "function" style, the context
-//    inside the function is undefined (or something you 
+//    	inside the function is undefined (or something you 
 // 		didn't intend on using, like window or global).
-// 		const bird = new Animal('birdie', 1, 'yellow');
-// 		const theFn = bird.greet;
+// 	  const bird = new Animal('birdie', 1, 'yellow');
+// 	  const theFn = bird.greet;
 //    theFn(); ---- FUNCTION style
 // 3. the instance being created
 // 		const bird = new Animal(); ---- CONSTRUCTOR style 
