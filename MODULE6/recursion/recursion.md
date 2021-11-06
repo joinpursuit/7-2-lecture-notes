@@ -11,6 +11,6 @@ const recurrsionLesson  =  (fellow) => {
     - What is it?
     - Recursive solution
     - Better Solution!!!! 
-}
+};
 
     fellow.recursion.makesSense ?  goDoCodeWars() : recursionLesson()
