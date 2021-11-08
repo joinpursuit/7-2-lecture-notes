@@ -114,6 +114,7 @@ const months = [
 let prevNode = new Node("Jan");
 
 let monthsList = new LinkedList(prevNode);
+
 //  loop through months;
 for( let i = 0; i < months.length; i++){
     let currentNode = new Node(months[i]);
