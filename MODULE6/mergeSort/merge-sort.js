@@ -22,7 +22,7 @@
     Merge sort is great in multi-threaded languages like Java
     as threads working side by side can sort the arrays while they are bing
     split at once.
-    
+
 
     
     Merge sort by the numbers 
@@ -56,3 +56,6 @@
             [1, 2, 3, 4, 7, 8, 11]
 
     */          
+  //  Step one LETS CONQUER
+
+let testArr = [4, 8, 7, 2, 11, 1, 3];
