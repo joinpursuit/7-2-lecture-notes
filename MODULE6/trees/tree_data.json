@@ -1,0 +1,29 @@
+{
+	"data": "John",
+	"children": [
+		{
+			"data": "Steve",
+			"children": [
+				{ "data": "Lee", "children": [] },
+				{ "data": "Bob", "children": [] },
+				{ "data": "Ella", "children": [] }
+			]
+		},
+		{
+			"data": "Rohan",
+			"children": [
+				{ "data": "Sal", "children": [] },
+				{ 
+					"data": "Emma", 
+					"children": [
+						{ 
+							"data": "Tom", 
+							"children": [{ "data": "Bill", "children": [] }]
+						},
+						{ "data": "Raj", "children": [] }
+					] 
+				}
+			]
+		}
+	]
+}
