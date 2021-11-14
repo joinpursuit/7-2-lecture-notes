@@ -167,15 +167,11 @@ const cardSort = (arr) => {
     if(a.value < b.value) return -1;
     if(a.value > b.value) return 1;
     //  we only get here if values are both 10
-    // if(a.face ==="Queen" && b.face ==='Jack') return 1;
-    // if(a.face ==="King" && b.face ==="Queen") return 1;
-    // if(a.face ==="King" && b.face ==="Jack") return 1;
+    if(a.face ==="Queen" && b.face ==='Jack') return 1;
+    if(a.face ==="King" && b.face ==="Queen") return 1;
+    if(a.face ==="King" && b.face ==="Jack") return 1;
     if((a.face === "Jack" && b.face ==="Queen") || (a.face ==="Jack" && b.face ==="King") ) return -1;
     if(a.face ==="Queen" && b.face === "King") return -1
-   
-
-
-
     return 0
   })
 }
